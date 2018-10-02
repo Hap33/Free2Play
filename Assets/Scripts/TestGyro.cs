@@ -54,17 +54,18 @@ public class TestGyro : MonoBehaviour {
 
         //Avancer
         transform.Translate(Vector3.forward*Vitesse);
+
         //Debug.Log(transform.rotation.z);
         Debug.Log(Input.gyro.attitude.y);
-        if (Input.gyro.attitude.y > 0.2f)
+        if (Input.gyro.attitude.y > 0.1f)
         {
             transform.Translate(Vector3.left* Input.gyro.attitude.y);
-            transform.Rotate(0, -Input.gyro.attitude.y * 4, 0, 0);
+            transform.Rotate(0, -Input.gyro.attitude.y * 6, 0, 0);
         }
-        else if(Input.gyro.attitude.y < -0.2f)
+        else if(Input.gyro.attitude.y < -0.1f)
         {
             transform.Translate(Vector3.left * Input.gyro.attitude.y);
-            transform.Rotate(0, -Input.gyro.attitude.y * 4, 0, 0);
+            transform.Rotate(0, -Input.gyro.attitude.y * 6, 0, 0);
         }
 
         
