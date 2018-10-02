@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TestGyro : MonoBehaviour {
 
-    public GameObject TheGoodRotate;
     public GameObject Aspect;
     public Material[] StateMaterials = new Material[3];
     public Image BoostImage;
@@ -26,7 +25,7 @@ public class TestGyro : MonoBehaviour {
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && BoostImage.fillAmount == 1)
+        if (Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.x != 0 && BoostImage.fillAmount == 1)
         {
             IsBoosting = true;
             Debug.Log("Swipe vers le haut");
@@ -54,17 +53,18 @@ public class TestGyro : MonoBehaviour {
         
 
         //Avancer
-        TheGoodRotate.transform.Translate(Vector3.forward*Vitesse);
-        
+        transform.Translate(Vector3.forward*Vitesse);
         //Debug.Log(transform.rotation.z);
-        Aspect.transform.Rotate(0, 0, Input.gyro.attitude.y*4, 0);
+        Debug.Log(Input.gyro.attitude.y);
         if (Input.gyro.attitude.y > 0.2f)
         {
-            TheGoodRotate.transform.Translate(Vector3.left* Input.gyro.attitude.y);
+            transform.Translate(Vector3.left* Input.gyro.attitude.y);
+            transform.Rotate(0, -Input.gyro.attitude.y * 4, 0, 0);
         }
         else if(Input.gyro.attitude.y < -0.2f)
         {
-            TheGoodRotate.transform.Translate(Vector3.left * Input.gyro.attitude.y);
+            transform.Translate(Vector3.left * Input.gyro.attitude.y);
+            transform.Rotate(0, -Input.gyro.attitude.y * 4, 0, 0);
         }
 
         
