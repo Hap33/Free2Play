@@ -210,6 +210,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114438959972915250, guid: 638b57d85710c2b4a80d68d3f9da1ca0,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438959972915250, guid: 638b57d85710c2b4a80d68d3f9da1ca0,
+        type: 2}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438959972915250, guid: 638b57d85710c2b4a80d68d3f9da1ca0,
+        type: 2}
+      propertyPath: m_ReferenceResolution.y
+      value: 800
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638b57d85710c2b4a80d68d3f9da1ca0, type: 2}
   m_IsPrefabAsset: 0
@@ -2085,7 +2100,7 @@ Prefab:
     - target: {fileID: 54079508234207382, guid: 78fdfecd7c09ab54c940478b78d4b586,
         type: 2}
       propertyPath: m_Constraints
-      value: 96
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 114509282665240668, guid: 78fdfecd7c09ab54c940478b78d4b586,
         type: 2}
