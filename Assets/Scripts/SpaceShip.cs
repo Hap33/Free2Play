@@ -24,10 +24,9 @@ public class SpaceShip : MonoBehaviour {
 
     public float[] maxSpeeds;
     public Material[] stateMaterials;
-    public Image boostImage;
     public GameMode gameMode;
 
-    private float speed;
+    private float speed, boostMax;
     private int nbStates;
     private bool isBoosting;
     private States states;
@@ -37,13 +36,19 @@ public class SpaceShip : MonoBehaviour {
         speed = 0;
         nbStates = 4;
         isBoosting = false;
-
-        maxSpeeds = new float[nbStates];
-        stateMaterials = new Material[nbStates];
 	}
 	
 	//Update is called once per frame
 	void Update () {
 		
 	}
+
+    //Getter for boostMax
+    public float BoostMax
+    {
+        get
+        {
+            return boostMax;
+        }
+    }
 }
