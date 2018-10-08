@@ -42,13 +42,33 @@ public class SpaceShip : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
-		
+        Move();
 	}
 
     //Used to move the SpaceShip
-    private void Move(Vector3 direction)
+    private void Move()
     {
+        float dir;
 
+        if (Input.gyro.enabled == true)
+        {
+            dir = GetDirectionFromGyroscope();
+        }
+        else
+        {
+            dir = GetDirectionFromAccelerometer();
+        }
+
+        if (dir == 1f)
+        {
+            transform.Translate(Vector3.left * -0.5f);
+            transform.Rotate(0, -3f, 0, 0);
+        }
+        else if (dir == -1f)
+        {
+            transform.Translate(Vector3.left * 0.5f);
+            transform.Rotate(0, 3f, 0, 0);
+        }
     }
 
     //Moves the actual state of the ship to a worse state
@@ -72,13 +92,35 @@ public class SpaceShip : MonoBehaviour {
     //Returns a float between -1 for going left and 1 for going right using the gyroscope
     private float GetDirectionFromGyroscope()
     {
-        return 0f;
+        float dir = 0;
+
+        if (Input.gyro.attitude.y > 0.1f)
+        {
+            dir = 1f;
+        }
+        else if (Input.gyro.attitude.y < -0.1f)
+        {
+            dir = -1f;
+        }
+        
+        return dir;
     }
 
     //Returns a float between -1 for going left and 1 for going right using the accelerometer
     private float GetDirectionFromAccelerometer()
     {
-        return 0f;
+        float dir = 0f;
+
+        if (Input.acceleration.x > 0.1f)
+        {
+            dir = 1f;
+        }
+        else if (Input.acceleration.x < 0.1f)
+        {
+            dir = -1f;
+        }
+
+        return dir;
     }
 
     //Getter for boostMax
