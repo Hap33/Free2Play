@@ -29,7 +29,7 @@ public class SpaceShip : MonoBehaviour {
 
     private float speed, boost, boostMax;
     private bool isBoosting;
-    private States states;
+    private States state;
     private GameManager gm;
 
     //Use this for initialization

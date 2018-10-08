@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class UIManager : MonoBehaviour {
 
     #region Instance
 
-    public static GameManager instance;
+    public static UIManager instance;
 
     private void Awake()
     {
@@ -18,16 +19,12 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-    private UIManager UImanager;
-    private SpaceShip spaceShip;
-
-    //Use this for initialization
+    // Use this for initialization
     void Start () {
-        UImanager = UIManager.instance;
-        spaceShip = SpaceShip.instance;
+		
 	}
 	
-	//Update is called once per frame
+	// Update is called once per frame
 	void Update () {
 		
 	}
