@@ -26,8 +26,9 @@ public class SpaceShip : MonoBehaviour {
     public float[] maxSpeeds;
     public Material[] stateMaterials;
     public GameMode gameMode;
+    public AnimationCurve accelerationCurve;
 
-    private float speed, boost, boostMax;
+    private float speed, maxSpeed, boost, boostMax;
     private bool isBoosting;
     private States state;
     private GameManager gm;
@@ -35,6 +36,7 @@ public class SpaceShip : MonoBehaviour {
     //Use this for initialization
     void Start () {
         speed = boost = 0;
+        maxSpeed = maxSpeeds[0];
         isBoosting = false;
 
         gm = GameManager.instance;
@@ -48,27 +50,16 @@ public class SpaceShip : MonoBehaviour {
     //Used to move the SpaceShip
     private void Move()
     {
-        float dir;
+        int dir;
 
+        //Gets direction from the gyro or
         if (Input.gyro.enabled == true)
-        {
             dir = GetDirectionFromGyroscope();
-        }
         else
-        {
             dir = GetDirectionFromAccelerometer();
-        }
 
-        if (dir == 1f)
-        {
-            transform.Translate(Vector3.left * -0.5f);
-            transform.Rotate(0, -3f, 0, 0);
-        }
-        else if (dir == -1f)
-        {
-            transform.Translate(Vector3.left * 0.5f);
-            transform.Rotate(0, 3f, 0, 0);
-        }
+        transform.Translate(Vector3.left * 0.5f * dir);
+        transform.Rotate(0, 3f * dir, 0, 0);
     }
 
     //Moves the actual state of the ship to a worse state
@@ -90,37 +81,44 @@ public class SpaceShip : MonoBehaviour {
     }
 
     //Returns a float between -1 for going left and 1 for going right using the gyroscope
-    private float GetDirectionFromGyroscope()
+    private int GetDirectionFromGyroscope()
     {
-        float dir = 0;
+        int dir = 0;
 
         if (Input.gyro.attitude.y > 0.1f)
         {
-            dir = 1f;
+            dir = 1;
         }
         else if (Input.gyro.attitude.y < -0.1f)
         {
-            dir = -1f;
+            dir = -1;
         }
         
         return dir;
     }
 
     //Returns a float between -1 for going left and 1 for going right using the accelerometer
-    private float GetDirectionFromAccelerometer()
+    private int GetDirectionFromAccelerometer()
     {
-        float dir = 0f;
+        int dir = 0;
 
         if (Input.acceleration.x > 0.1f)
         {
-            dir = 1f;
+            dir = 1;
         }
         else if (Input.acceleration.x < 0.1f)
         {
-            dir = -1f;
+            dir = -1;
         }
 
         return dir;
+    }
+
+    //Returns the acceleration value [0; 1]
+    private float GetAcceleration()
+    {
+        float clampSpeed = Mathf.Clamp01(speed / maxSpeed);
+        return accelerationCurve.Evaluate(clampSpeed);
     }
 
     //Getter for boostMax

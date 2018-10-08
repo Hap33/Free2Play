@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    public float timeLeft;
+
     private UIManager UImanager;
     private SpaceShip spaceShip;
 
@@ -29,6 +31,21 @@ public class GameManager : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
+
+        //Decrease the timer
+        timeLeft -= Time.deltaTime;
 		
 	}
+
+    //Initiates the race
+    private void InitRace()
+    {
+
+    }
+
+    //Called when the race ends
+    private void EndRace()
+    {
+
+    }
 }
