@@ -22,7 +22,6 @@ public class SpaceShip : MonoBehaviour {
     public enum GameMode { Time_Attack, Zone }; //Time_Attack = 0 / Zone = 1
     private enum States { Excellent, Good, Damaged, Broken }; //Excellent = 0 / Good = 1 / Damaged = 2 / Broken = 3
 
-    public float acceleration;
     public float[] maxSpeeds;
     public Material[] stateMaterials;
     public GameMode gameMode;
@@ -60,6 +59,9 @@ public class SpaceShip : MonoBehaviour {
 
         transform.Translate(Vector3.left * 0.5f * dir);
         transform.Rotate(0, 3f * dir, 0, 0);
+
+        speed += maxSpeeds[0] * GetAcceleration();
+        transform.Translate(0, 0, speed);
     }
 
     //Moves the actual state of the ship to a worse state
