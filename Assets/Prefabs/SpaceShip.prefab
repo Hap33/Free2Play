@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca9677ce74de4646bc1a51d6afa884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0
   maxSpeeds:
   - 4
   - 3
@@ -216,48 +215,48 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0020752
-      inSlope: 0.04382459
-      outSlope: 0.04382459
+      value: 0.3
+      inSlope: -0.029456245
+      outSlope: -0.029456245
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.11451097
+      outWeight: 0.12963977
     - serializedVersion: 3
-      time: 0.5408499
-      value: 0.9477014
-      inSlope: -0.23695505
-      outSlope: -0.23695505
+      time: 0.4383667
+      value: 0.2902649
+      inSlope: 0.023886705
+      outSlope: 0.023886705
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.16338125
+      outWeight: 0.12868555
     - serializedVersion: 3
-      time: 0.83482105
-      value: 0.72052747
-      inSlope: -1.5057676
-      outSlope: -1.5057676
+      time: 0.7411612
+      value: 0.26573837
+      inSlope: -0.104026794
+      outSlope: -0.104026794
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.25083148
+      inWeight: 0.18217178
+      outWeight: 0.19122107
     - serializedVersion: 3
-      time: 0.9744617
-      value: 0.23332909
-      inSlope: -5.580304
-      outSlope: -5.580304
+      time: 0.91667205
+      value: 0.1798706
+      inSlope: -1.2038364
+      outSlope: -1.2038364
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.31606826
+      outWeight: 0.39894035
     - serializedVersion: 3
       time: 1
       value: 0.0020751953
-      inSlope: -16.70296
-      outSlope: -16.70296
+      inSlope: -2.4021542
+      outSlope: -2.4021542
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.11688703
+      inWeight: 0.96403766
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
