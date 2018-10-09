@@ -38,13 +38,13 @@ public class GameManager : MonoBehaviour {
 	}
 
     //Initiates the race
-    private void InitRace()
+    public void InitRace()
     {
 
     }
 
     //Called when the race ends
-    private void EndRace()
+    public void EndRace()
     {
 
     }

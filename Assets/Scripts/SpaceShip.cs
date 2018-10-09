@@ -26,17 +26,19 @@ public class SpaceShip : MonoBehaviour {
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
     public GameObject spaceShipAspect;
-    public float sideSpeed;
+    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal;
     public float[] boostByState;
 
     private float speed, maxSpeed, boost, boostMax, rotationZ;
     private bool isBoosting;
     private States state;
     private GameManager gm;
+    private bool hasEnded;
    
 
     //Use this for initialization
     void Start () {
+        hasEnded = false;
         boostMax = 1;
         speed = boost = 0;
         state = States.Excellent;
@@ -50,6 +52,14 @@ public class SpaceShip : MonoBehaviour {
 	//Update is called once per frame
 	void Update () {
         Move();
+
+        //Checks if we swipe up
+        if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost == boostMax)
+        {
+            StartBoost();
+        }
+
+        BoostDraining();
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -79,6 +89,18 @@ public class SpaceShip : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("EndTrigger"))
+        {
+            EndOfGame();
+        }
+        if (col.CompareTag("CheckPoint"))
+        {
+            RepairSpaceShip();
+        }
+    }
+
     //Used to move the SpaceShip
     private void Move()
     {
@@ -99,7 +121,7 @@ public class SpaceShip : MonoBehaviour {
 
 
         speed += maxSpeeds[(int)state] * GetAcceleration();
-        if(speed > maxSpeed)
+        if(speed > maxSpeed && isBoosting == false)
         {
             speed = maxSpeed;
         }
@@ -179,6 +201,43 @@ public class SpaceShip : MonoBehaviour {
     {
         float clampSpeed = Mathf.Clamp01(speed / maxSpeed);
         return accelerationCurve.Evaluate(clampSpeed);
+    }
+
+    //Shows Score UI and Allow the player to quit, restart or go to the shop
+    void EndOfGame()
+    {
+        GameObject Camera;
+        //call the UIManager to show the End UI and hide the Play UI
+        Camera = this.gameObject.transform.GetChild(1).gameObject;
+        Camera.transform.parent = null;
+        //GameManager.instance.EndRace();
+    }
+
+    //Adds the boost to our current speed
+    public void StartBoost()
+    {
+        isBoosting = true;
+        speed *= boostMultiplier;
+    }
+
+    //Puts our speed back to what it was
+    public void StopBoost()
+    {
+        isBoosting = false;
+    }
+
+    //Lower the boost meter when boosting
+    public void BoostDraining()
+    {
+        if (isBoosting == true)
+        {
+            boost -= Time.deltaTime * boostTimerBeforeBackToNormal;
+            if (boost < 0)
+            {
+                boost = 0;
+                StopBoost();
+            }
+        }
     }
 
     //Getter for boostMax
