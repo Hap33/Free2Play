@@ -87,11 +87,11 @@ public class SpaceShip : MonoBehaviour {
     {
         int dir = 0;
 
-        if (Input.gyro.attitude.y > 0.1f)
+        if (Input.gyro.attitude.y > 0.2f)
         {
             dir = 1;
         }
-        else if (Input.gyro.attitude.y < -0.1f)
+        else if (Input.gyro.attitude.y < -0.2f)
         {
             dir = -1;
         }
@@ -104,11 +104,11 @@ public class SpaceShip : MonoBehaviour {
     {
         int dir = 0;
 
-        if (Input.acceleration.x > 0.1f)
+        if (Input.acceleration.x > 0.2f)
         {
             dir = 1;
         }
-        else if (Input.acceleration.x < 0.1f)
+        else if (Input.acceleration.x < -0.2f)
         {
             dir = -1;
         }
