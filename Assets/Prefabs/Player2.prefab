@@ -320,3 +320,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spaceShipAspect: {fileID: 1024610388038236}
+  sideSpeed: 0.5

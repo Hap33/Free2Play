@@ -27,6 +27,7 @@ public class SpaceShip : MonoBehaviour {
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
     public GameObject spaceShipAspect;
+    public float sideSpeed;
 
     private float speed, maxSpeed, boost, boostMax, rotationZ;
     private bool isBoosting;
@@ -55,6 +56,12 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
+            speed /= 2;
+        }
+        
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            speed /= 2;
         }
     }
 
@@ -68,14 +75,13 @@ public class SpaceShip : MonoBehaviour {
             dir = GetDirectionFromGyroscope();
         else
             dir = GetDirectionFromAccelerometer();
-
-        transform.Translate(Vector3.left * 0.5f * dir);
+        
         transform.Rotate(0, 1.5f*dir, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
         rotationZ +=  dir;
-        spaceShipAspect.transform.localEulerAngles = new Vector3(0, 0, -rotationZ);
+        spaceShipAspect.transform.localEulerAngles = new Vector3(0, -90f, -rotationZ);
 
 
         speed += maxSpeeds[(int)state] * GetAcceleration();
@@ -84,7 +90,7 @@ public class SpaceShip : MonoBehaviour {
             speed = maxSpeed;
         }
 
-        transform.Translate(0, 0, speed);
+        transform.Translate(sideSpeed * dir, 0, speed);
     }
 
     //Moves the actual state of the ship to a worse state
@@ -97,7 +103,7 @@ public class SpaceShip : MonoBehaviour {
         }
         spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
         state = (States)currentState;
-        maxSpeed = maxSpeeds[(int)currentState];
+        maxSpeed = maxSpeeds[currentState];
     }
 
     //Transitions from any state to the Excellent
