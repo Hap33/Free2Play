@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
@@ -19,13 +20,27 @@ public class UIManager : MonoBehaviour {
 
     #endregion
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //Loads the Main Menu Scene
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    //Loads the Level Selection Scene
+    public void LoadLevelSelection()
+    {
+        SceneManager.LoadScene("Level_Selection");
+    }
+
+    //Loads the Shop Scene
+    public void LoadShop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
+    //Loads the Game Scene
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Proto");
+    }
 }
