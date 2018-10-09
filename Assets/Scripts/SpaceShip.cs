@@ -76,12 +76,12 @@ public class SpaceShip : MonoBehaviour {
         else
             dir = GetDirectionFromAccelerometer();
         
-        transform.Rotate(0, 1.5f*dir, 0, 0);
+        transform.Rotate(0, 1.5f*dir* sideSpeed, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
         rotationZ +=  dir;
-        spaceShipAspect.transform.localEulerAngles = new Vector3(0, 0, -rotationZ);
+        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*sideSpeed, -90f, 0);
 
 
         speed += maxSpeeds[(int)state] * GetAcceleration();

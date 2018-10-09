@@ -38,8 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4245718745576434}
   - component: {fileID: 33579551994308854}
-  - component: {fileID: 23882525375641488}
-  - component: {fileID: 65790737970425584}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -65,6 +63,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1756839446289356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4504601893284690}
+  - component: {fileID: 33192728886035052}
+  - component: {fileID: 23049751683531138}
+  m_Layer: 0
+  m_Name: Vaisseau_V2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4245718745576434
 Transform:
   m_ObjectHideFlags: 1
@@ -76,7 +91,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 4953632005433384}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4293433203062734
 Transform:
@@ -91,6 +106,19 @@ Transform:
   m_Father: {fileID: 4953632005433384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+--- !u!4 &4504601893284690
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756839446289356}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.3199997, y: 1.2337056, z: -5.169922}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4953632005433384}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4953632005433384
 Transform:
   m_ObjectHideFlags: 1
@@ -101,8 +129,9 @@ Transform:
   m_LocalPosition: {x: -1.9826677, y: 1.2359465, z: -20315.992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4245718745576434}
+  - {fileID: 4504601893284690}
   - {fileID: 4293433203062734}
+  - {fileID: 4245718745576434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,12 +175,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!23 &23882525375641488
+--- !u!23 &23049751683531138
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1024610388038236}
+  m_GameObject: {fileID: 1756839446289356}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -161,7 +190,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6661db134904cb844ab1584917e898b9, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,6 +210,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33192728886035052
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756839446289356}
+  m_Mesh: {fileID: 4300000, guid: 6661db134904cb844ab1584917e898b9, type: 3}
 --- !u!33 &33579551994308854
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -227,18 +263,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.034736, y: 3.609623, z: 4.0097656}
   m_Center: {x: 3.210592, y: -1.458128, z: -4.477539}
---- !u!65 &65790737970425584
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1024610388038236}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81864204007078394
 AudioListener:
   m_ObjectHideFlags: 1
@@ -319,5 +343,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  spaceShipAspect: {fileID: 1024610388038236}
+  spaceShipAspect: {fileID: 1756839446289356}
   sideSpeed: 0.5
