@@ -211,6 +211,7 @@ public class SpaceShip : MonoBehaviour {
         Camera = this.gameObject.transform.GetChild(1).gameObject;
         Camera.transform.parent = null;
         //GameManager.instance.EndRace();
+        UIManager.instance.LoadLevelSelection();
     }
 
     //Adds the boost to our current speed
