@@ -260,8 +260,8 @@ MonoBehaviour:
   maxSpeeds:
   - 2.25
   - 1.75
-  - 2
-  - 1
+  - 1.25
+  - 0.75
   stateMaterials:
   - {fileID: 2100000, guid: b7e726c0fcb13124ea755529888dc855, type: 2}
   - {fileID: 2100000, guid: 7db7da8915a2a8d4da96bf781a23daee, type: 2}

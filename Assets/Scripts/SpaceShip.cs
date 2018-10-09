@@ -36,7 +36,9 @@ public class SpaceShip : MonoBehaviour {
     //Use this for initialization
     void Start () {
         speed = boost = 0;
-        maxSpeed = maxSpeeds[0];
+        state = States.Excellent;
+        maxSpeed = maxSpeeds[(int)state];
+        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         isBoosting = false;
 
         gm = GameManager.instance;
@@ -46,6 +48,15 @@ public class SpaceShip : MonoBehaviour {
 	void Update () {
         Move();
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            DamageSpaceShip((int)state);
+            Destroy(collision.gameObject);
+        }
+    }
 
     //Used to move the SpaceShip
     private void Move()
@@ -67,7 +78,7 @@ public class SpaceShip : MonoBehaviour {
         spaceShipAspect.transform.localEulerAngles = new Vector3(0, 0, -rotationZ);
 
 
-        speed += maxSpeeds[0] * GetAcceleration();
+        speed += maxSpeeds[(int)state] * GetAcceleration();
         if(speed > maxSpeed)
         {
             speed = maxSpeed;
@@ -79,13 +90,22 @@ public class SpaceShip : MonoBehaviour {
     //Moves the actual state of the ship to a worse state
     private void DamageSpaceShip(int currentState)
     {
-        //switch-case for different transitions
+        currentState += 1;
+        if (currentState > 3)
+        {
+            currentState = 3;
+        }
+        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
+        state = (States)currentState;
+        maxSpeed = maxSpeeds[(int)currentState];
     }
 
     //Transitions from any state to the Excellent
     private void RepairSpaceShip()
     {
-
+        state = (States)0;
+        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
+        maxSpeed = maxSpeeds[0];
     }
 
     //Destroys the ship (usable only in Zone mode)
