@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SpaceShip : MonoBehaviour {
 
@@ -28,14 +27,17 @@ public class SpaceShip : MonoBehaviour {
     public AnimationCurve accelerationCurve;
     public GameObject spaceShipAspect;
     public float sideSpeed;
+    public float[] boostByState;
 
     private float speed, maxSpeed, boost, boostMax, rotationZ;
     private bool isBoosting;
     private States state;
     private GameManager gm;
+   
 
     //Use this for initialization
     void Start () {
+        boostMax = 1;
         speed = boost = 0;
         state = States.Excellent;
         maxSpeed = maxSpeeds[(int)state];
@@ -62,6 +64,18 @@ public class SpaceShip : MonoBehaviour {
         if (collision.gameObject.CompareTag("Wall"))
         {
             speed /= 2;
+        }
+    }
+
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.CompareTag("Boost"))
+        {
+            boost += Time.deltaTime * 0.2f;
+            if (boost > boostMax)
+            {
+                boost = boostMax;
+            }
         }
     }
 
@@ -104,11 +118,17 @@ public class SpaceShip : MonoBehaviour {
         spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
         state = (States)currentState;
         maxSpeed = maxSpeeds[currentState];
+        boostMax = boostByState[currentState];
+        if (boost > boostMax)
+        {
+            boost = boostMax;
+        }
     }
 
     //Transitions from any state to the Excellent
     private void RepairSpaceShip()
     {
+        boostMax = boostByState[0];
         state = (States)0;
         spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         maxSpeed = maxSpeeds[0];
