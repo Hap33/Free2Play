@@ -26,8 +26,9 @@ public class SpaceShip : MonoBehaviour {
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
+    public GameObject spaceShipAspect;
 
-    private float speed, maxSpeed, boost, boostMax;
+    private float speed, maxSpeed, boost, boostMax, rotationZ;
     private bool isBoosting;
     private States state;
     private GameManager gm;
@@ -58,9 +59,20 @@ public class SpaceShip : MonoBehaviour {
             dir = GetDirectionFromAccelerometer();
 
         transform.Translate(Vector3.left * 0.5f * dir);
-        transform.Rotate(0, 3f * dir, 0, 0);
+        transform.Rotate(0, 1.5f*dir, 0, 0);
+
+        rotationZ = Mathf.Clamp(rotationZ, -20, 20);
+        rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
+        rotationZ +=  dir;
+        spaceShipAspect.transform.localEulerAngles = new Vector3(0, 0, -rotationZ);
+
 
         speed += maxSpeeds[0] * GetAcceleration();
+        if(speed > maxSpeed)
+        {
+            speed = maxSpeed;
+        }
+
         transform.Translate(0, 0, speed);
     }
 
