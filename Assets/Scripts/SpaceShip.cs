@@ -34,6 +34,7 @@ public class SpaceShip : MonoBehaviour {
     private States state;
     private GameManager gm;
     private bool hasEnded;
+    private bool isStarting;
    
 
     //Use this for initialization
@@ -45,12 +46,18 @@ public class SpaceShip : MonoBehaviour {
         maxSpeed = maxSpeeds[(int)state];
         spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         isBoosting = false;
+        isStarting = false;
 
         gm = GameManager.instance;
 	}
 	
 	//Update is called once per frame
 	void Update () {
+        if (isStarting == false)
+        {
+            return;
+        }
+
         Move();
 
         //Checks if we swipe up
@@ -213,6 +220,12 @@ public class SpaceShip : MonoBehaviour {
         Camera.transform.parent = null;
         //GameManager.instance.EndRace();
         UIManager.instance.LoadLevelSelection();
+    }
+
+    //Starts the game
+    public void StartEngine()
+    {
+        isStarting = true;
     }
 
     //Adds the boost to our current speed

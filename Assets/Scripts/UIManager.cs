@@ -9,9 +9,11 @@ public class UIManager : MonoBehaviour {
     public Image boostLife;
     public Image boostSpeed;
     public Text timerText;
+    public Text textStart;
 
     private float timerSec;
     private int timerMin;
+    private int isReady;
 
     #region Instance
 
@@ -29,8 +31,10 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
+        StartCoroutine(StartTimer());
         timerSec = 0;
         timerMin = 0;
+        isReady = 0;
     }
 
     private void Update()
@@ -71,11 +75,26 @@ public class UIManager : MonoBehaviour {
 
     public void Timer()
     {
-        timerSec += Time.deltaTime;
+        timerSec += Time.deltaTime * isReady;
         if (timerSec >= 60)
         {
             timerSec = 0;
             timerMin += 1;
         }
+    }
+
+    IEnumerator StartTimer()
+    {
+        textStart.text = "3";
+        yield return new WaitForSeconds(1);
+        textStart.text = "2";
+        yield return new WaitForSeconds(1);
+        textStart.text = "1";
+        yield return new WaitForSeconds(1);
+        textStart.text = "GO!";
+        SpaceShip.instance.StartEngine();
+        isReady = 1;
+        yield return new WaitForSeconds(1);
+        textStart.text = "";
     }
 }
