@@ -60,6 +60,7 @@ public class SpaceShip : MonoBehaviour {
         }
 
         BoostDraining();
+        UIManager.instance.BoostUpdate(boost, boostMax);
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -219,12 +220,14 @@ public class SpaceShip : MonoBehaviour {
     {
         isBoosting = true;
         speed *= boostMultiplier;
+        Camera.main.fieldOfView = 120;
     }
 
     //Puts our speed back to what it was
     public void StopBoost()
     {
         isBoosting = false;
+        Camera.main.fieldOfView = 60;
     }
 
     //Lower the boost meter when boosting

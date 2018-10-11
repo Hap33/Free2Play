@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
+    public Image boostLife;
+    public Image boostSpeed;
+
     #region Instance
 
     public static UIManager instance;
@@ -43,4 +46,11 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Proto");
     }
+
+    public void BoostUpdate(float boostForSpeed, float boostForLife)
+    {
+        boostLife.fillAmount = boostForLife;
+        boostSpeed.fillAmount = boostForSpeed;
+    }
+
 }
