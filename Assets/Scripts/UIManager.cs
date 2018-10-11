@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour {
 
     public Image boostLife;
     public Image boostSpeed;
+    public Text timerText;
+
+    private float timerSec;
+    private int timerMin;
 
     #region Instance
 
@@ -22,6 +26,18 @@ public class UIManager : MonoBehaviour {
     }
 
     #endregion
+
+    private void Start()
+    {
+        timerSec = 0;
+        timerMin = 0;
+    }
+
+    private void Update()
+    {
+        Timer();
+        timerText.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
+    }
 
     //Loads the Main Menu Scene
     public void LoadMainMenu()
@@ -53,4 +69,13 @@ public class UIManager : MonoBehaviour {
         boostSpeed.fillAmount = boostForSpeed;
     }
 
+    public void Timer()
+    {
+        timerSec += Time.deltaTime;
+        if (timerSec >= 60)
+        {
+            timerSec = 0;
+            timerMin += 1;
+        }
+    }
 }

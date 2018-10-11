@@ -739,6 +739,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114732404440445790, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1619695253}
+    - target: {fileID: 114339926822322120, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114339926822322120, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114339926822322120, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2377,6 +2397,12 @@ Transform:
   m_Father: {fileID: 2010324689}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619695253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114339926822322120, guid: 709ea6694e52fcd47921725e7f30acd6,
+    type: 2}
+  m_PrefabInternal: {fileID: 561286614}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1624658175
 GameObject:
   m_ObjectHideFlags: 0
