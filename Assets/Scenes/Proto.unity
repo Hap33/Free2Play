@@ -784,6 +784,21 @@ Prefab:
       propertyPath: textStart
       value: 
       objectReference: {fileID: 879626355}
+    - target: {fileID: 224071477469243334, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.28386462
+      objectReference: {fileID: 0}
+    - target: {fileID: 224071477469243334, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.02800939
+      objectReference: {fileID: 0}
+    - target: {fileID: 224071477469243334, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.9478258
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
   m_IsPrefabAsset: 0

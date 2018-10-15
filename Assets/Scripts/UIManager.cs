@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public Image boostLife;
-    public Image boostSpeed;
-    public Text timerText;
-    public Text textStart;
+    public Image boostLife, boostSpeed;
+    public Text timerText, textStart;
 
     private float timerSec;
     private int timerMin;

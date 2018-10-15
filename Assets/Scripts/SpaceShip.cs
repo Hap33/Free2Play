@@ -78,6 +78,7 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
+
             speed /= 2;
         }
         
@@ -132,7 +133,7 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
-            speed += maxSpeeds[(int)state] * GetAcceleration();
+            speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
         }
 
         if(speed > maxSpeed && isBoosting == false)
@@ -239,7 +240,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed *= boostMultiplier;
+        speed = 5;
         Camera.main.fieldOfView = 120;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
