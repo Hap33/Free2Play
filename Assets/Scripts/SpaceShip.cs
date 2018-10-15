@@ -25,11 +25,11 @@ public class SpaceShip : MonoBehaviour {
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
-    public GameObject spaceShipAspect;
+    public GameObject spaceShipAspect, speedEffect, speedMotor;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal;
     public float[] boostByState;
 
-    private float speed, maxSpeed, boost, boostMax, rotationZ;
+    private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
     private bool isBoosting;
     private States state;
     private GameManager gm;
@@ -39,6 +39,8 @@ public class SpaceShip : MonoBehaviour {
 
     //Use this for initialization
     void Start () {
+        speedEffect.SetActive(false);
+        speedMotor.SetActive(false);
         hasEnded = false;
         boostMax = 1;
         speed = boost = 0;
@@ -61,7 +63,7 @@ public class SpaceShip : MonoBehaviour {
         Move();
 
         //Checks if we swipe up
-        if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost == boostMax)
+        if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
         {
             StartBoost();
         }
@@ -128,7 +130,11 @@ public class SpaceShip : MonoBehaviour {
         spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*sideSpeed, -90f, 0);
 
 
-        speed += maxSpeeds[(int)state] * GetAcceleration();
+        if (isBoosting == false)
+        {
+            speed += maxSpeeds[(int)state] * GetAcceleration();
+        }
+
         if(speed > maxSpeed && isBoosting == false)
         {
             speed = maxSpeed;
@@ -231,9 +237,12 @@ public class SpaceShip : MonoBehaviour {
     //Adds the boost to our current speed
     public void StartBoost()
     {
+        boostBottom = boost - 0.1f;
         isBoosting = true;
         speed *= boostMultiplier;
         Camera.main.fieldOfView = 120;
+        speedEffect.SetActive(true);
+        speedMotor.SetActive(true);
     }
 
     //Puts our speed back to what it was
@@ -241,6 +250,8 @@ public class SpaceShip : MonoBehaviour {
     {
         isBoosting = false;
         Camera.main.fieldOfView = 60;
+        speedEffect.SetActive(false);
+        speedMotor.SetActive(false);
     }
 
     //Lower the boost meter when boosting
@@ -249,9 +260,9 @@ public class SpaceShip : MonoBehaviour {
         if (isBoosting == true)
         {
             boost -= Time.deltaTime * boostTimerBeforeBackToNormal;
-            if (boost < 0)
+            if (boost < boostBottom)
             {
-                boost = 0;
+                boost = boostBottom;
                 StopBoost();
             }
         }
