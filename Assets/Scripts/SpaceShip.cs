@@ -51,6 +51,7 @@ public class SpaceShip : MonoBehaviour {
         spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         isBoosting = false;
         isStarting = false;
+        hasEnded = false;
 
         gm = GameManager.instance;
 	}
@@ -78,6 +79,11 @@ public class SpaceShip : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (hasEnded == true)
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             DamageSpaceShip((int)state);
@@ -124,6 +130,13 @@ public class SpaceShip : MonoBehaviour {
     //Used to move the SpaceShip
     private void Move()
     {
+        if(hasEnded == true)
+        {
+            soundSource.pitch = 0;
+            transform.Translate(0, 0, speed * Time.timeScale);
+            return;
+        }
+
         int dir;
 
         //Gets direction from the gyro or
@@ -232,12 +245,13 @@ public class SpaceShip : MonoBehaviour {
     //Shows Score UI and Allow the player to quit, restart or go to the shop
     void EndOfGame()
     {
+        hasEnded = true;
         GameObject Camera;
         //call the UIManager to show the End UI and hide the Play UI
         Camera = this.gameObject.transform.GetChild(1).gameObject;
         Camera.transform.parent = null;
         //GameManager.instance.EndRace();
-        UIManager.instance.LoadLevelSelection();
+        UIManagerGame.instance.EndGame();
     }
 
     //Starts the game

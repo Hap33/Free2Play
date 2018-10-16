@@ -20,7 +20,9 @@ public class UIManagerGame : MonoBehaviour {
     #endregion
 
     public Image boostLife, boostSpeed, speedGrad;
-    public Text timerText, textStart;
+    public Text timerText, textStart, textFinalTime;
+    public GameObject endGameScreen;
+    public GameObject UI;
 
     private float timerSec;
     private float arrowY;
@@ -61,6 +63,13 @@ public class UIManagerGame : MonoBehaviour {
     {
         arrowY = speed * 250 + 30;
         speedGrad.transform.position = new Vector3(speedGrad.transform.position.x, arrowY, speedGrad.transform.position.z);
+    }
+
+    public void EndGame()
+    {
+        endGameScreen.SetActive(true);
+        textFinalTime.text = "Final Time : " + timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
+        isReady = 0;
     }
 
     IEnumerator StartTimer()
