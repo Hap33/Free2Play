@@ -27,7 +27,7 @@ public class SpaceShip : MonoBehaviour {
     public GameObject spaceShipAspect, speedEffect, speedMotor;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal;
     public float[] boostByState, maxSpeeds;
-    public AudioClip soundSpeed, soundHurt, soundStart;
+    public AudioClip soundSpeed, soundHurt, soundStart, threeSound, twoSound, oneSound;
 
     private AudioSource soundSource;
     private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
@@ -40,7 +40,7 @@ public class SpaceShip : MonoBehaviour {
     //Use this for initialization
     void Start () {
         soundSource = spaceShipAspect.GetComponent<AudioSource>();
-        soundSource.PlayOneShot(soundStart);
+        StartCoroutine(StartSound());
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -155,7 +155,6 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
-
             soundSource.pitch = speed;
             speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
         }
@@ -301,5 +300,16 @@ public class SpaceShip : MonoBehaviour {
         {
             return boostMax;
         }
+    }
+
+    IEnumerator StartSound()
+    {
+        soundSource.PlayOneShot(threeSound);
+        yield return new WaitForSeconds(1);
+        soundSource.PlayOneShot(twoSound);
+        yield return new WaitForSeconds(1);
+        soundSource.PlayOneShot(oneSound);
+        yield return new WaitForSeconds(1);
+        soundSource.PlayOneShot(soundStart);
     }
 }
