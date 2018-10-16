@@ -184,26 +184,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
-        type: 2}
-      propertyPath: threeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e03a1df210585524885c15a6968face3, type: 3}
-    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
-        type: 2}
-      propertyPath: twoSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f6f1d166e70beb47a58d1af840d6d80, type: 3}
-    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
-        type: 2}
-      propertyPath: oneSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 45c8a187c00ebca48b573cb4f2012532, type: 3}
-    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
-        type: 2}
-      propertyPath: soundStart
-      value: 
-      objectReference: {fileID: 8300000, guid: f687bb9d2c6afd54aba592ca9f3e108f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
   m_IsPrefabAsset: 0
