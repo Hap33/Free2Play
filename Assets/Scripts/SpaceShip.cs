@@ -20,25 +20,27 @@ public class SpaceShip : MonoBehaviour {
 
     public enum GameMode { Time_Attack, Zone }; //Time_Attack = 0 / Zone = 1
     private enum States { Excellent, Good, Damaged, Broken }; //Excellent = 0 / Good = 1 / Damaged = 2 / Broken = 3
-
-    public float[] maxSpeeds;
+    
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
     public GameObject spaceShipAspect, speedEffect, speedMotor;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal;
-    public float[] boostByState;
+    public float[] boostByState, maxSpeeds;
+    public AudioClip soundSpeed, soundHurt, soundStart;
 
+    private AudioSource soundSource;
     private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
     private bool isBoosting;
     private States state;
     private GameManager gm;
     private bool hasEnded;
     private bool isStarting;
-   
-
+    
     //Use this for initialization
     void Start () {
+        soundSource = spaceShipAspect.GetComponent<AudioSource>();
+        soundSource.PlayOneShot(soundStart);
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -60,9 +62,10 @@ public class SpaceShip : MonoBehaviour {
             return;
         }
 
-        Move();
-        UIManager.instance.CheckSpeed(speed);
+        soundSource.PlayOneShot(soundSpeed);
 
+        Move();
+        UIManagerGame.instance.CheckSpeed(speed);
         //Checks if we swipe up
         if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
         {
@@ -70,7 +73,7 @@ public class SpaceShip : MonoBehaviour {
         }
 
         BoostDraining();
-        UIManager.instance.BoostUpdate(boost, boostMax);
+        UIManagerGame.instance.BoostUpdate(boost, boostMax);
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -79,13 +82,18 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-
+            soundSource.Stop();
+            soundSource.pitch = 1;
+            soundSource.PlayOneShot(soundHurt);
             speed /= 2;
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
             speed /= 2;
+            soundSource.Stop();
+            soundSource.pitch = 1;
+            soundSource.PlayOneShot(soundHurt);
         }
     }
 
@@ -134,6 +142,8 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
+
+            soundSource.pitch = speed;
             speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
         }
 
@@ -142,7 +152,7 @@ public class SpaceShip : MonoBehaviour {
             speed = maxSpeed;
         }
 
-        transform.Translate(sideSpeed * dir, 0, speed);
+        transform.Translate(sideSpeed * dir * Time.timeScale, 0, speed * Time.timeScale);
     }
 
     //Moves the actual state of the ship to a worse state
