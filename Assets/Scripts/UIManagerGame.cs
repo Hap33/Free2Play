@@ -19,10 +19,10 @@ public class UIManagerGame : MonoBehaviour {
 
     #endregion
 
-    public Image boostLife, boostSpeed, speedGrad;
-    public Text timerText, textStart, textFinalTime;
+    public Image boostLife, boostSpeed, speedGrad, imageStart;
+    public Text timerText, textFinalTime;
+    public Sprite threeSprite, twoSprite, oneSprite, goSprite;
     public GameObject endGameScreen;
-    public GameObject UI;
 
     private float timerSec;
     private float arrowY;
@@ -74,16 +74,16 @@ public class UIManagerGame : MonoBehaviour {
 
     IEnumerator StartTimer()
     {
-        textStart.text = "3";
+        imageStart.sprite = threeSprite;
         yield return new WaitForSeconds(1);
-        textStart.text = "2";
+        imageStart.sprite = twoSprite;
         yield return new WaitForSeconds(1);
-        textStart.text = "1";
+        imageStart.sprite = oneSprite;
         yield return new WaitForSeconds(1);
-        textStart.text = "GO!";
+        imageStart.sprite = goSprite;
         SpaceShip.instance.StartEngine();
         isReady = 1;
         yield return new WaitForSeconds(1);
-        textStart.text = "";
+        imageStart.enabled = false;
     }
 }
