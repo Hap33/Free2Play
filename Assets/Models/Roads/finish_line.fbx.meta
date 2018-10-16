@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 0ca8179d4f8813d4dbbc3e01ebf1b9e7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: 1
+    100002: Couvercle_1
+    100004: Couvercle_1_2
+    100006: Couvercle_1_3
+    100008: Couvercle_1_4
+    100010: Couvercle_1_5
+    100012: Couvercle_1_6
+    100014: Couvercle_2
+    100016: Couvercle_2_2
+    100018: Couvercle_2_3
+    100020: Couvercle_2_4
+    100022: Couvercle_2_5
+    100024: Couvercle_2_6
+    100026: Cube
+    100028: Cube_1
+    100030: Cube_2
+    100032: Cube_3
+    100034: Cube_4
+    100036: Cube_5
+    100038: Cube_6
+    100040: F
+    100042: FINISH
+    100044: //RootNode
+    100046: H
+    100048: I
+    100050: I_2
+    100052: MoTexte
+    100054: N
+    100056: Polygone
+    100058: Polygone_1
+    100060: S
+    100062: Sol
+    400000: 1
+    400002: Couvercle_1
+    400004: Couvercle_1_2
+    400006: Couvercle_1_3
+    400008: Couvercle_1_4
+    400010: Couvercle_1_5
+    400012: Couvercle_1_6
+    400014: Couvercle_2
+    400016: Couvercle_2_2
+    400018: Couvercle_2_3
+    400020: Couvercle_2_4
+    400022: Couvercle_2_5
+    400024: Couvercle_2_6
+    400026: Cube
+    400028: Cube_1
+    400030: Cube_2
+    400032: Cube_3
+    400034: Cube_4
+    400036: Cube_5
+    400038: Cube_6
+    400040: F
+    400042: FINISH
+    400044: //RootNode
+    400046: H
+    400048: I
+    400050: I_2
+    400052: MoTexte
+    400054: N
+    400056: Polygone
+    400058: Polygone_1
+    400060: S
+    400062: Sol
+    2100000: No Name
+    2300000: Couvercle_1
+    2300002: Couvercle_1_2
+    2300004: Couvercle_1_3
+    2300006: Couvercle_1_4
+    2300008: Couvercle_1_5
+    2300010: Couvercle_1_6
+    2300012: Couvercle_2
+    2300014: Couvercle_2_2
+    2300016: Couvercle_2_3
+    2300018: Couvercle_2_4
+    2300020: Couvercle_2_5
+    2300022: Couvercle_2_6
+    2300024: Cube
+    2300026: Cube_1
+    2300028: Cube_2
+    2300030: Cube_3
+    2300032: Cube_4
+    2300034: Cube_5
+    2300036: Cube_6
+    2300038: F
+    2300040: H
+    2300042: I
+    2300044: I_2
+    2300046: N
+    2300048: Polygone
+    2300050: Polygone_1
+    2300052: S
+    3300000: Couvercle_1
+    3300002: Couvercle_1_2
+    3300004: Couvercle_1_3
+    3300006: Couvercle_1_4
+    3300008: Couvercle_1_5
+    3300010: Couvercle_1_6
+    3300012: Couvercle_2
+    3300014: Couvercle_2_2
+    3300016: Couvercle_2_3
+    3300018: Couvercle_2_4
+    3300020: Couvercle_2_5
+    3300022: Couvercle_2_6
+    3300024: Cube
+    3300026: Cube_1
+    3300028: Cube_2
+    3300030: Cube_3
+    3300032: Cube_4
+    3300034: Cube_5
+    3300036: Cube_6
+    3300038: F
+    3300040: H
+    3300042: I
+    3300044: I_2
+    3300046: N
+    3300048: Polygone
+    3300050: Polygone_1
+    3300052: S
+    4300000: Polygone_1
+    4300002: Polygone
+    4300004: Cube_6
+    4300006: F
+    4300008: Couvercle_1
+    4300010: Couvercle_2
+    4300012: I
+    4300014: Couvercle_1_2
+    4300016: Couvercle_2_2
+    4300018: N
+    4300020: Couvercle_1_3
+    4300022: Couvercle_2_3
+    4300024: I_2
+    4300026: Couvercle_1_4
+    4300028: Couvercle_2_4
+    4300030: S
+    4300032: Couvercle_1_5
+    4300034: Couvercle_2_5
+    4300036: H
+    4300038: Couvercle_1_6
+    4300040: Couvercle_2_6
+    4300042: Cube_4
+    4300044: Cube_3
+    4300046: Cube_2
+    4300048: Cube_1
+    4300050: Cube
+    4300052: Cube_5
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
