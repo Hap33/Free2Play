@@ -799,6 +799,32 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0.9478258
       objectReference: {fileID: 0}
+    - target: {fileID: 114732404440445790, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: speedArrow
+      value: 
+      objectReference: {fileID: 1023052194}
+    - target: {fileID: 1374336299295286, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342398766322560, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_Name
+      value: SpeedGrad
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374336299295286, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_Name
+      value: SpeedBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342398766322560, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224347417706432862, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.6502328
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
   m_IsPrefabAsset: 0
@@ -1587,6 +1613,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 999605484}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1023052194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114775865148175678, guid: 709ea6694e52fcd47921725e7f30acd6,
+    type: 2}
+  m_PrefabInternal: {fileID: 561286614}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1033982158
 Prefab:
   m_ObjectHideFlags: 0

@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public Image boostLife, boostSpeed;
+    public Image boostLife, boostSpeed, speedArrow;
     public Text timerText, textStart;
 
     private float timerSec;
+    private float arrowY;
     private int timerMin;
     private int isReady;
 
@@ -79,6 +80,12 @@ public class UIManager : MonoBehaviour {
             timerSec = 0;
             timerMin += 1;
         }
+    }
+
+    public void CheckSpeed(float speed)
+    {
+        arrowY = speed * 250 + 30;
+        speedArrow.transform.position = new Vector3(speedArrow.transform.position.x, arrowY, speedArrow.transform.position.z);
     }
 
     IEnumerator StartTimer()

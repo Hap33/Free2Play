@@ -61,6 +61,7 @@ public class SpaceShip : MonoBehaviour {
         }
 
         Move();
+        UIManager.instance.CheckSpeed(speed);
 
         //Checks if we swipe up
         if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
