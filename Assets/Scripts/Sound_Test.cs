@@ -13,4 +13,9 @@ public class Sound_Test : MonoBehaviour {
     {
         audioSource.pitch = _pitch;
     }
+
+    private void Update()
+    {
+        audioSource.Play();
+    }
 }
