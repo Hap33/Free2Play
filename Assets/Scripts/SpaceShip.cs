@@ -25,7 +25,7 @@ public class SpaceShip : MonoBehaviour {
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
     public GameObject spaceShipAspect, speedEffect, speedMotor;
-    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal;
+    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax;
     public float[] boostByState, maxSpeeds;
     public AudioClip soundSpeed, soundHurt, soundStart, threeSound, twoSound, oneSound;
 
@@ -72,8 +72,16 @@ public class SpaceShip : MonoBehaviour {
         {
             StartBoost();
         }
+        /*else
+        {
+            Camera.main.fieldOfView -= Time.deltaTime * 100;
+        }*/
 
         BoostDraining();
+        if (Camera.main.fieldOfView < 60)
+        {
+            Camera.main.fieldOfView = 60;
+        }
         UIManagerGame.instance.BoostUpdate(boost, boostMax);
 	}
 
@@ -133,7 +141,7 @@ public class SpaceShip : MonoBehaviour {
         if(hasEnded == true)
         {
             soundSource.pitch = 0;
-            transform.Translate(0, 0, speed * Time.timeScale);
+            transform.Translate(0, 0, speed * Time.deltaTime);
             return;
         }
 
@@ -155,7 +163,7 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
-            soundSource.pitch = speed;
+            soundSource.pitch = speed/35;
             speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
         }
 
@@ -164,7 +172,7 @@ public class SpaceShip : MonoBehaviour {
             speed = maxSpeed;
         }
 
-        transform.Translate(sideSpeed * dir * Time.timeScale, 0, speed * Time.timeScale);
+        transform.Translate(sideSpeed * dir * Time.deltaTime, 0, speed * Time.deltaTime);
     }
 
     //Moves the actual state of the ship to a worse state
@@ -264,8 +272,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed = 5;
-        Camera.main.fieldOfView = 120;
+        speed = 200 * accelerationBoost;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
     }
@@ -274,7 +281,6 @@ public class SpaceShip : MonoBehaviour {
     public void StopBoost()
     {
         isBoosting = false;
-        Camera.main.fieldOfView = 60;
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
     }
@@ -288,6 +294,7 @@ public class SpaceShip : MonoBehaviour {
             if (boost < boostBottom)
             {
                 boost = boostBottom;
+                Camera.main.fieldOfView = 60;
                 StopBoost();
             }
         }
@@ -300,6 +307,18 @@ public class SpaceShip : MonoBehaviour {
         {
             return boostMax;
         }
+    }
+
+    public void MovingFov()
+    {
+
+        Camera.main.fieldOfView += Time.deltaTime * 100;
+        if (Camera.main.fieldOfView > fovMax)
+        {
+
+            Camera.main.fieldOfView = fovMax;
+        }
+
     }
 
     IEnumerator StartSound()
