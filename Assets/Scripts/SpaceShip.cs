@@ -66,7 +66,7 @@ public class SpaceShip : MonoBehaviour {
         soundSource.PlayOneShot(soundSpeed);
 
         Move();
-        UIManagerGame.instance.CheckSpeed(speed);
+        UIManagerGame.instance.CheckSpeed(speed/35);
         //Checks if we swipe up
         if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
         {
@@ -78,10 +78,9 @@ public class SpaceShip : MonoBehaviour {
         }*/
 
         BoostDraining();
-        if (Camera.main.fieldOfView < 60)
-        {
-            Camera.main.fieldOfView = 60;
-        }
+
+
+
         UIManagerGame.instance.BoostUpdate(boost, boostMax);
 	}
 
@@ -153,18 +152,22 @@ public class SpaceShip : MonoBehaviour {
         else
             dir = GetDirectionFromAccelerometer();
         
-        transform.Rotate(0, 1.5f*dir* sideSpeed, 0, 0);
+        transform.Rotate(0, 1.5f*dir* sideSpeed*Time.deltaTime, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
         rotationZ +=  dir;
-        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*sideSpeed, -90f, 0);
+        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime, -90f, 0);
 
 
         if (isBoosting == false)
         {
-            soundSource.pitch = speed/35;
             speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
+            Camera.main.fieldOfView -= Time.deltaTime * 100;
+            if (Camera.main.fieldOfView < 60)
+            {
+                Camera.main.fieldOfView = 60;
+            }
         }
 
         if(speed > maxSpeed && isBoosting == false)
@@ -290,11 +293,11 @@ public class SpaceShip : MonoBehaviour {
     {
         if (isBoosting == true)
         {
+            MovingFov();
             boost -= Time.deltaTime * boostTimerBeforeBackToNormal;
             if (boost < boostBottom)
             {
                 boost = boostBottom;
-                Camera.main.fieldOfView = 60;
                 StopBoost();
             }
         }
@@ -315,7 +318,6 @@ public class SpaceShip : MonoBehaviour {
         Camera.main.fieldOfView += Time.deltaTime * 100;
         if (Camera.main.fieldOfView > fovMax)
         {
-
             Camera.main.fieldOfView = fovMax;
         }
 
