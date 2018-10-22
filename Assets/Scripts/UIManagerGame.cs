@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManagerGame : MonoBehaviour {
 
@@ -18,6 +19,9 @@ public class UIManagerGame : MonoBehaviour {
     }
 
     #endregion
+
+    [SerializeField]
+    private TextMeshProUGUI timerTextMesh;
 
     public Image boostLife, boostSpeed, speedGrad, imageStart;
     public Text timerText, textFinalTime;
@@ -47,7 +51,7 @@ public class UIManagerGame : MonoBehaviour {
         }
 
         Timer();
-        timerText.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
+        timerTextMesh.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
     }
 
     public void BoostUpdate(float boostForSpeed, float boostForLife)
@@ -107,6 +111,7 @@ public class UIManagerGame : MonoBehaviour {
 
     IEnumerator StartTimer()
     {
+        SpaceShip.instance.StartCountdown();
         imageStart.sprite = threeSprite;
         yield return new WaitForSeconds(1);
         imageStart.sprite = twoSprite;
@@ -122,8 +127,8 @@ public class UIManagerGame : MonoBehaviour {
 
     IEnumerator TextChanging()
     {
-        timerText.text = "This Vehicle is locked";
+        timerTextMesh.text = "This Vehicle is locked";
         yield return new WaitForSeconds(2);
-        timerText.text = "Chose your vehicle";
+        timerTextMesh.text = "Chose your vehicle";
     }
 }

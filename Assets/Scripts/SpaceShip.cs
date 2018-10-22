@@ -40,7 +40,6 @@ public class SpaceShip : MonoBehaviour {
     //Use this for initialization
     void Start () {
         soundSource = spaceShipAspect.GetComponent<AudioSource>();
-        StartCoroutine(StartSound());
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -321,6 +320,11 @@ public class SpaceShip : MonoBehaviour {
             Camera.main.fieldOfView = fovMax;
         }
 
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(StartSound());
     }
 
     IEnumerator StartSound()
