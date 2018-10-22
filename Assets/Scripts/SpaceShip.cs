@@ -24,7 +24,8 @@ public class SpaceShip : MonoBehaviour {
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
-    public GameObject spaceShipAspect, speedEffect, speedMotor, sparksWallHit;
+    public GameObject speedEffect, speedMotor, sparksWallHit;
+    public GameObject[] spaceShipAspect;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
     public float[] boostByState, maxSpeeds;
     public AudioClip soundSpeed, soundHurt, soundStart, threeSound, twoSound, oneSound;
@@ -39,7 +40,7 @@ public class SpaceShip : MonoBehaviour {
     
     //Use this for initialization
     void Start () {
-        soundSource = spaceShipAspect.GetComponent<AudioSource>();
+        soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -47,7 +48,7 @@ public class SpaceShip : MonoBehaviour {
         speed = boost = 0;
         state = States.Excellent;
         maxSpeed = maxSpeeds[(int)state];
-        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
+        //spaceShipAspect[(int)state].GetComponent<MeshRenderer>().material = stateMaterials[0];
         isBoosting = false;
         isStarting = false;
         hasEnded = false;
@@ -57,6 +58,7 @@ public class SpaceShip : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
+        Debug.Log((int)state);
         if (isStarting == false)
         {
             return;
@@ -78,10 +80,11 @@ public class SpaceShip : MonoBehaviour {
 
         BoostDraining();
 
-
-
         UIManagerGame.instance.BoostUpdate(boost, boostMax);
-	}
+
+        CheckSpaceShip();
+       
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -164,7 +167,7 @@ public class SpaceShip : MonoBehaviour {
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
         rotationZ +=  dir;
-        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime * Time.timeScale, -90f, 0);
+        spaceShipAspect[(int)state].transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime * Time.timeScale, -90f, 0);
 
 
         if (isBoosting == false)
@@ -185,6 +188,19 @@ public class SpaceShip : MonoBehaviour {
         transform.Translate(sideSpeed * dir * Time.deltaTime * Time.timeScale, 0, speed * Time.deltaTime * Time.timeScale);
     }
 
+    public void CheckSpaceShip()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == (int)state)
+            {
+                spaceShipAspect[i].SetActive(true);
+                continue;
+            }
+            spaceShipAspect[i].SetActive(false);
+        }
+    }
+
     //Moves the actual state of the ship to a worse state
     private void DamageSpaceShip(int currentState)
     {
@@ -193,7 +209,7 @@ public class SpaceShip : MonoBehaviour {
         {
             currentState = 3;
         }
-        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
+        //spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
         state = (States)currentState;
         maxSpeed = maxSpeeds[currentState];
         boostMax = boostByState[currentState];
@@ -208,7 +224,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostMax = boostByState[0];
         state = (States)0;
-        spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
+        //spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         maxSpeed = maxSpeeds[0];
     }
 
@@ -265,7 +281,7 @@ public class SpaceShip : MonoBehaviour {
         hasEnded = true;
         GameObject Camera;
         //call the UIManager to show the End UI and hide the Play UI
-        Camera = this.gameObject.transform.GetChild(1).gameObject;
+        Camera = this.gameObject.transform.GetChild(4).gameObject;
         Camera.transform.parent = null;
         //GameManager.instance.EndRace();
         UIManagerGame.instance.EndGame();

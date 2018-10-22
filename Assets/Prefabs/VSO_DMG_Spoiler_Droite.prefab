@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782028877500464}
   m_Layer: 0
-  m_Name: VSO_DMG_Spoiler_Droite 1
+  m_Name: VSO_DMG_Spoiler_Droite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
