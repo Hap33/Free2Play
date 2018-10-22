@@ -23,13 +23,13 @@ public class UIManagerGame : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI timerTextMesh, textFinalTimeMesh;
 
-    public Image boostLife, boostSpeed, speedGrad, imageStart;
+    public Image boostLife, boostSpeed, speedGrad, imageStart, imageSelectVehicle;
     public Sprite threeSprite, twoSprite, oneSprite, goSprite;
-    public GameObject endGameScreen;
+    public GameObject endGameScreen, selectButton;
+    public Sprite[] selectVehicleSprite;
 
-    private float timerSec;
-    private float arrowY;
-    private int timerMin;
+    private float timerSec, arrowY;
+    private int timerMin, vehicleIndex;
     private int isReady;
     private bool isPaused, hasChosenVehicle;
 
@@ -40,13 +40,24 @@ public class UIManagerGame : MonoBehaviour {
         timerSec = 0;
         timerMin = 0;
         isReady = 0;
+        vehicleIndex = 0;
     }
 
     private void Update()
     {
         if (!hasChosenVehicle)
         {
+            imageSelectVehicle.sprite = selectVehicleSprite[vehicleIndex];
             return;
+        }
+
+        if (vehicleIndex != 0)
+        {
+            selectButton.SetActive(false);
+        }
+        else
+        {
+            selectButton.SetActive(true);
         }
 
         Timer();
@@ -100,13 +111,31 @@ public class UIManagerGame : MonoBehaviour {
 
     public void RightChoice()
     {
+        if (vehicleIndex != 0)
+        {
+            return;
+        }
         hasChosenVehicle = true;
         StartCoroutine(StartTimer());
     }
 
-    public void WrongChoice()
+    public void LeftArrow()
     {
-        StartCoroutine(TextChanging());
+        vehicleIndex -= 1;
+        if (vehicleIndex < 0)
+        {
+            vehicleIndex = 2;
+        }
+    }
+
+    public void RightArrow()
+    {
+        vehicleIndex += 1;
+
+        if (vehicleIndex > 2)
+        {
+            vehicleIndex = 0;
+        }
     }
 
     IEnumerator StartTimer()

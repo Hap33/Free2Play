@@ -24,8 +24,8 @@ public class SpaceShip : MonoBehaviour {
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
-    public GameObject spaceShipAspect, speedEffect, speedMotor;
-    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax;
+    public GameObject spaceShipAspect, speedEffect, speedMotor, sparksWallHit;
+    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
     public float[] boostByState, maxSpeeds;
     public AudioClip soundSpeed, soundHurt, soundStart, threeSound, twoSound, oneSound;
 
@@ -109,6 +109,14 @@ public class SpaceShip : MonoBehaviour {
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Instantiate(sparksWallHit, collision.contacts[0].point, transform.rotation);
+        }
+    }
+
     private void OnTriggerStay(Collider col)
     {
         if (col.CompareTag("Boost"))
@@ -151,7 +159,7 @@ public class SpaceShip : MonoBehaviour {
         else
             dir = GetDirectionFromAccelerometer();
         
-        transform.Rotate(0, 1.5f*dir* sideSpeed*Time.deltaTime*Time.timeScale, 0, 0);
+        transform.Rotate(0, 1.5f*dir* turnSpeed*Time.deltaTime*Time.timeScale, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
