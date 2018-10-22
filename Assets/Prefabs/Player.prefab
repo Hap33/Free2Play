@@ -559,7 +559,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.353
+  m_Volume: 0.223
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -714,19 +714,21 @@ MonoBehaviour:
   spaceShipAspect: {fileID: 1756839446289356}
   speedEffect: {fileID: 1267983729944382}
   speedMotor: {fileID: 1670520342848440}
-  sideSpeed: 0.5
+  sideSpeed: 40
   boostMultiplier: 2
   boostTimerBeforeBackToNormal: 0.5
+  accelerationBoost: 1
+  fovMax: 120
   boostByState:
   - 1
   - 0.63
   - 0.37
   - 0.17
   maxSpeeds:
-  - 2.25
-  - 1.75
-  - 1.25
-  - 0.75
+  - 100
+  - 50
+  - 25
+  - 10
   soundSpeed: {fileID: 8300000, guid: c1e9fb55e8921664493f0686887c82e4, type: 3}
   soundHurt: {fileID: 8300000, guid: 677b102f5e0d5884fb2155c4c2a28740, type: 3}
   soundStart: {fileID: 8300000, guid: f687bb9d2c6afd54aba592ca9f3e108f, type: 3}

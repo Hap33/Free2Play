@@ -28,9 +28,11 @@ public class UIManagerGame : MonoBehaviour {
     private float arrowY;
     private int timerMin;
     private int isReady;
+    private bool isPaused;
 
     private void Start()
     {
+        isPaused = false;
         StartCoroutine(StartTimer());
         timerSec = 0;
         timerMin = 0;
@@ -51,7 +53,7 @@ public class UIManagerGame : MonoBehaviour {
 
     public void Timer()
     {
-        timerSec += Time.deltaTime * isReady;
+        timerSec += Time.deltaTime * isReady * Time.timeScale;
         if (timerSec >= 60)
         {
             timerSec = 0;
@@ -70,6 +72,20 @@ public class UIManagerGame : MonoBehaviour {
         endGameScreen.SetActive(true);
         textFinalTime.text = "Final Time : " + timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
         isReady = 0;
+    }
+
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+
+        if (!isPaused)
+        {
+            Time.timeScale = 1;
+        }
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     IEnumerator StartTimer()

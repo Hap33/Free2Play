@@ -152,12 +152,12 @@ public class SpaceShip : MonoBehaviour {
         else
             dir = GetDirectionFromAccelerometer();
         
-        transform.Rotate(0, 1.5f*dir* sideSpeed*Time.deltaTime, 0, 0);
+        transform.Rotate(0, 1.5f*dir* sideSpeed*Time.deltaTime*Time.timeScale, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
         rotationZ +=  dir;
-        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime, -90f, 0);
+        spaceShipAspect.transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime * Time.timeScale, -90f, 0);
 
 
         if (isBoosting == false)
@@ -175,7 +175,7 @@ public class SpaceShip : MonoBehaviour {
             speed = maxSpeed;
         }
 
-        transform.Translate(sideSpeed * dir * Time.deltaTime, 0, speed * Time.deltaTime);
+        transform.Translate(sideSpeed * dir * Time.deltaTime * Time.timeScale, 0, speed * Time.deltaTime * Time.timeScale);
     }
 
     //Moves the actual state of the ship to a worse state
