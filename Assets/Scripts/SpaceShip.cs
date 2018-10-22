@@ -58,7 +58,6 @@ public class SpaceShip : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
-        Debug.Log((int)state);
         if (isStarting == false)
         {
             return;
