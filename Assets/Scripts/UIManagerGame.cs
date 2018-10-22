@@ -28,12 +28,12 @@ public class UIManagerGame : MonoBehaviour {
     private float arrowY;
     private int timerMin;
     private int isReady;
-    private bool isPaused;
+    private bool isPaused, hasChosenVehicle;
 
     private void Start()
     {
         isPaused = false;
-        StartCoroutine(StartTimer());
+        hasChosenVehicle = false;
         timerSec = 0;
         timerMin = 0;
         isReady = 0;
@@ -41,6 +41,11 @@ public class UIManagerGame : MonoBehaviour {
 
     private void Update()
     {
+        if (!hasChosenVehicle)
+        {
+            return;
+        }
+
         Timer();
         timerText.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
     }
@@ -86,6 +91,18 @@ public class UIManagerGame : MonoBehaviour {
         {
             Time.timeScale = 0;
         }
+
+    }
+
+    public void RightChoice()
+    {
+        hasChosenVehicle = true;
+        StartCoroutine(StartTimer());
+    }
+
+    public void WrongChoice()
+    {
+        StartCoroutine(TextChanging());
     }
 
     IEnumerator StartTimer()
@@ -101,5 +118,12 @@ public class UIManagerGame : MonoBehaviour {
         isReady = 1;
         yield return new WaitForSeconds(1);
         imageStart.enabled = false;
+    }
+
+    IEnumerator TextChanging()
+    {
+        timerText.text = "This Vehicle is locked";
+        yield return new WaitForSeconds(2);
+        timerText.text = "Chose your vehicle";
     }
 }
