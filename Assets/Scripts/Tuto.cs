@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level_1 : MonoBehaviour {
+public class Tuto : MonoBehaviour
+{
 
     public void SceneLaunch(string nomScene)
     {

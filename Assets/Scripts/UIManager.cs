@@ -46,4 +46,10 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Proto");
     }
+
+    //Loads the Level_1 Scene
+    public void LoadLevel_1()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
 }

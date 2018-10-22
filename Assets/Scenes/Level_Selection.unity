@@ -508,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84212667, y: 0.13488366}
   m_AnchorMax: {x: 1, y: 0.29327208}
-  m_AnchoredPosition: {x: -0.2000122, y: -1.3999939}
+  m_AnchoredPosition: {x: -0.2000122, y: -1.3999634}
   m_SizeDelta: {x: 0.4000244, y: 10.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124543725
@@ -672,7 +672,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1227873609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1824437202}
+        m_MethodName: SceneLaunch
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tuto
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1227873609
@@ -785,15 +796,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1824437201}
+        m_MethodName: SceneLaunch
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level_1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1185,6 +1196,8 @@ GameObject:
   - component: {fileID: 1824437198}
   - component: {fileID: 1824437197}
   - component: {fileID: 1824437200}
+  - component: {fileID: 1824437201}
+  - component: {fileID: 1824437202}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1246,5 +1259,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39ce89557f0fb7942bd735a33862131a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824437201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824437196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd73d012ed542a4a9d78f4f015aad7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824437202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824437196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3eb02f30303d24082990f58103ab91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
