@@ -37,9 +37,10 @@ GameObject:
   - component: {fileID: 4048519090821478}
   - component: {fileID: 33465868191786228}
   - component: {fileID: 23243611451230642}
+  - component: {fileID: 64710881581598186}
   m_Layer: 0
   m_Name: Cube_2_2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +55,7 @@ GameObject:
   - component: {fileID: 4799737053899124}
   - component: {fileID: 33200551286573072}
   - component: {fileID: 23882489884784340}
+  - component: {fileID: 64854444227536316}
   m_Layer: 0
   m_Name: Plan_1_2
   m_TagString: Untagged
@@ -87,9 +89,10 @@ GameObject:
   - component: {fileID: 4888796637579518}
   - component: {fileID: 33103247501194930}
   - component: {fileID: 23210761490383740}
+  - component: {fileID: 64134982712693538}
   m_Layer: 0
   m_Name: Cube_3_2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +123,7 @@ GameObject:
   - component: {fileID: 4855562129972952}
   - component: {fileID: 33344791318300132}
   - component: {fileID: 23802313775389642}
-  - component: {fileID: 64895103766083344}
+  - component: {fileID: 64716655233330762}
   m_Layer: 0
   m_Name: Cylindre
   m_TagString: Untagged
@@ -231,8 +234,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011323109870474}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 25.51}
+  m_LocalRotation: {x: -0.14059912, y: -0.4933667, z: 0.08117497, w: 0.854536}
+  m_LocalPosition: {x: 70.61687, y: -9.957762, z: -20.07803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4684851674341820}
@@ -423,6 +426,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1118217924150838}
   m_Mesh: {fileID: 4300006, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
+--- !u!64 &64134982712693538
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1334105545364522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
 --- !u!64 &64303084973286386
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -465,6 +482,34 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!64 &64710881581598186
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1118217924150838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
+--- !u!64 &64716655233330762
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511505866568028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
 --- !u!64 &64814147440767126
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -479,12 +524,12 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!64 &64895103766083344
+--- !u!64 &64854444227536316
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1511505866568028}
+  m_GameObject: {fileID: 1211802040762478}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -492,4 +537,4 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 24dec367ef7a1a548a163b26cfd46e97, type: 3}
