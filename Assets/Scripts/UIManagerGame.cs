@@ -21,10 +21,9 @@ public class UIManagerGame : MonoBehaviour {
     #endregion
 
     [SerializeField]
-    private TextMeshProUGUI timerTextMesh;
+    private TextMeshProUGUI timerTextMesh, textFinalTimeMesh;
 
     public Image boostLife, boostSpeed, speedGrad, imageStart;
-    public Text timerText, textFinalTime;
     public Sprite threeSprite, twoSprite, oneSprite, goSprite;
     public GameObject endGameScreen;
 
@@ -78,8 +77,9 @@ public class UIManagerGame : MonoBehaviour {
 
     public void EndGame()
     {
+        timerTextMesh.enabled = false;
         endGameScreen.SetActive(true);
-        textFinalTime.text = "Final Time : " + timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
+        textFinalTimeMesh.text = "Final Time : " + timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
         isReady = 0;
     }
 
