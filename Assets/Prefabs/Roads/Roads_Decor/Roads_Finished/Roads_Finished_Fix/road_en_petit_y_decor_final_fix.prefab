@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869473417379112}
   m_Layer: 0
-  m_Name: road_en_petit_y_decor_final
+  m_Name: road_en_petit_y_decor_final_fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
