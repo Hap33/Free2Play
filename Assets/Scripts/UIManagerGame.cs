@@ -23,6 +23,7 @@ public class UIManagerGame : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI timerTextMesh, textFinalTimeMesh;
 
+    public Text speedText;
     public Image boostLife, boostSpeed, speedGrad, imageStart, imageSelectVehicle;
     public Sprite threeSprite, twoSprite, oneSprite, goSprite;
     public GameObject endGameScreen, selectButton;
@@ -45,11 +46,12 @@ public class UIManagerGame : MonoBehaviour {
 
     private void Update()
     {
-        /*if (!hasChosenVehicle)
+        if (hasChosenVehicle)
         {
-            return;
-        }*/
-        
+            Timer();
+            timerTextMesh.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
+        }
+
         if (SkinManager.instance.IsBought(vehicleIndex) == false)
         {
             imageSelectVehicle.sprite = selectVehicleSprite[3];
@@ -60,9 +62,6 @@ public class UIManagerGame : MonoBehaviour {
             imageSelectVehicle.sprite = selectVehicleSprite[vehicleIndex];
             selectButton.SetActive(true);
         }
-
-        Timer();
-        timerTextMesh.text = timerMin.ToString("00") + " : " + timerSec.ToString("00.00");
     }
 
     public void BoostUpdate(float boostForSpeed, float boostForLife)
@@ -85,6 +84,7 @@ public class UIManagerGame : MonoBehaviour {
     {
         arrowY = speed * 250 + 30;
         speedGrad.transform.position = new Vector3(speedGrad.transform.position.x, arrowY, speedGrad.transform.position.z);
+        speedText.text = speed.ToString("0.00");
     }
 
     public void EndGame()

@@ -162,9 +162,9 @@ public class SpaceShip : MonoBehaviour {
         transform.Rotate(0, 1.5f*dir* turnSpeed*Time.deltaTime*Time.timeScale, 0, 0);
 
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
-        rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30);
+        rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30 * Time.timeScale);
         rotationZ +=  dir;
-        spaceShipAspect[(int)state].transform.localEulerAngles = new Vector3(-rotationZ*100*Time.deltaTime * Time.timeScale, -90f, 0);
+        spaceShipAspect[(int)state].transform.localEulerAngles = new Vector3(-rotationZ * Time.timeScale, -90f, 0);
 
 
         if (isBoosting == false)
