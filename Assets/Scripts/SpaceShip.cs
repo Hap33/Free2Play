@@ -28,7 +28,8 @@ public class SpaceShip : MonoBehaviour {
     public GameObject[] spaceShipAspect;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
     public float[] boostByState, maxSpeeds;
-    public AudioClip soundSpeed, soundHurt, soundStart, threeSound, twoSound, oneSound;
+    public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound;
+    public AudioClip[] soundDamage;
 
     private AudioSource soundSource;
     private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
@@ -58,8 +59,6 @@ public class SpaceShip : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
-
-        soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
 
         if (isStarting == false)
         {
@@ -99,18 +98,14 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-            soundSource.Stop();
-            soundSource.pitch = 1;
-            soundSource.PlayOneShot(soundHurt);
+            soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
+            soundSource.PlayOneShot(soundDamage[(int)state]);
             speed /= 2;
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
             speed /= 2;
-            soundSource.Stop();
-            soundSource.pitch = 1;
-            soundSource.PlayOneShot(soundHurt);
         }
     }
 
