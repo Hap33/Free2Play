@@ -68,7 +68,7 @@ public class SpaceShip : MonoBehaviour {
         soundSource.PlayOneShot(soundSpeed);
 
         Move();
-        UIManagerGame.instance.CheckSpeed(speed/35);
+        UIManagerGame.instance.CheckSpeed(speed/5);
         //Checks if we swipe up
         if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
         {
