@@ -45,18 +45,19 @@ public class UIManagerGame : MonoBehaviour {
 
     private void Update()
     {
-        if (!hasChosenVehicle)
+        /*if (!hasChosenVehicle)
         {
-            imageSelectVehicle.sprite = selectVehicleSprite[vehicleIndex];
             return;
-        }
-
-        if (vehicleIndex != 0)
+        }*/
+        
+        if (SkinManager.instance.IsBought(vehicleIndex) == false)
         {
+            imageSelectVehicle.sprite = selectVehicleSprite[3];
             selectButton.SetActive(false);
         }
         else
         {
+            imageSelectVehicle.sprite = selectVehicleSprite[vehicleIndex];
             selectButton.SetActive(true);
         }
 
@@ -111,10 +112,6 @@ public class UIManagerGame : MonoBehaviour {
 
     public void RightChoice()
     {
-        if (vehicleIndex != 0)
-        {
-            return;
-        }
         hasChosenVehicle = true;
         StartCoroutine(StartTimer());
     }
@@ -158,6 +155,6 @@ public class UIManagerGame : MonoBehaviour {
     {
         timerTextMesh.text = "This Vehicle is locked";
         yield return new WaitForSeconds(2);
-        timerTextMesh.text = "Chose your vehicle";
+        timerTextMesh.text = "Choose Your Vehicle";
     }
 }

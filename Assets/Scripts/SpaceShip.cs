@@ -58,6 +58,9 @@ public class SpaceShip : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
+
+        soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
+
         if (isStarting == false)
         {
             return;
