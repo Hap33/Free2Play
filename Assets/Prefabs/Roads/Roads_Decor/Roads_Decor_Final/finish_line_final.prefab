@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4440309230988794}
   - component: {fileID: 65604045896320342}
   m_Layer: 0
-  m_Name: finish_line
+  m_Name: finish_line_final
   m_TagString: EndTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
