@@ -32,7 +32,7 @@ public class SkinManager : MonoBehaviour {
     // Checks if the Item is bought
     public bool IsBought(int shipID)
     {
-        if (shipID <= shipBought)
+        if (shipID == shipBought || shipID == 0 || shipBought == 3)
         {
             return true;
         }
@@ -45,7 +45,7 @@ public class SkinManager : MonoBehaviour {
     // Have the 
     public void BuyShip(int shipID)
     {
-        if (shipBought != 0)
+        if (shipBought != 0 && shipID != shipBought)
         {
             shipBought = 3;
         }
