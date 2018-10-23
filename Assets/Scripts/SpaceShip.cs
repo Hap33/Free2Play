@@ -41,7 +41,7 @@ public class SpaceShip : MonoBehaviour {
     
     //Use this for initialization
     void Start () {
-        soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
+        soundSource = gameObject.GetComponent<AudioSource>();
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -98,7 +98,7 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-            soundSource = spaceShipAspect[(int)state].GetComponent<AudioSource>();
+            soundSource = gameObject.GetComponent<AudioSource>();
             soundSource.PlayOneShot(soundDamage[(int)state]);
             speed /= 2;
         }
