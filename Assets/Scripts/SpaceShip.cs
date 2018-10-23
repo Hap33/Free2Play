@@ -99,7 +99,6 @@ public class SpaceShip : MonoBehaviour {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
             soundSource = gameObject.GetComponent<AudioSource>();
-            soundSource.PlayOneShot(soundDamage[(int)state]);
             speed /= 2;
         }
         
@@ -210,6 +209,8 @@ public class SpaceShip : MonoBehaviour {
         state = (States)currentState;
         maxSpeed = maxSpeeds[currentState];
         boostMax = boostByState[currentState];
+        soundSource.Stop();
+        soundSource.PlayOneShot(soundDamage[currentState]);
         if (boost > boostMax)
         {
             boost = boostMax;
@@ -273,12 +274,12 @@ public class SpaceShip : MonoBehaviour {
     }
 
     //Shows Score UI and Allow the player to quit, restart or go to the shop
-    void EndOfGame()
+    private void EndOfGame()
     {
         hasEnded = true;
         GameObject Camera;
         //call the UIManager to show the End UI and hide the Play UI
-        Camera = this.gameObject.transform.GetChild(4).gameObject;
+        Camera = this.gameObject.transform.GetChild(6).gameObject;
         Camera.transform.parent = null;
         //GameManager.instance.EndRace();
         UIManagerGame.instance.EndGame();
@@ -295,7 +296,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed = 200 * accelerationBoost;
+        speed = maxSpeeds[(int)state] * 2;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
     }

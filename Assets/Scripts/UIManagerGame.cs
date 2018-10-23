@@ -83,7 +83,7 @@ public class UIManagerGame : MonoBehaviour {
     public void CheckSpeed(float speed)
     {
         arrowY = speed * 250 + 30;
-        speedGrad.transform.position = new Vector3(speedGrad.transform.position.x, arrowY, speedGrad.transform.position.z);
+        speedGrad.transform.position = new Vector3(speedGrad.transform.position.x, 1000-arrowY, speedGrad.transform.position.z);
         float actualSpeed = speed * 500;
         speedText.text = actualSpeed.ToString("0.00");
     }
