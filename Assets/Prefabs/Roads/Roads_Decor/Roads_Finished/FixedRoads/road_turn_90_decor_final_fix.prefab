@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081877504670168}
   m_Layer: 0
-  m_Name: road_turn_90_decor_final
+  m_Name: road_turn_90_decor_final_fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
