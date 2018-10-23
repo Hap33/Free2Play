@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1884923, g: 0.061392613, b: 0.15673482, a: 1}
+  m_IndirectSpecularColor: {r: 0.19173068, g: 0.06402525, b: 0.16992494, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4096,7 +4096,7 @@ Prefab:
     - target: {fileID: 224483018913504822, guid: 709ea6694e52fcd47921725e7f30acd6,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -7.342003
+      value: -7.3420105
       objectReference: {fileID: 0}
     - target: {fileID: 224483018913504822, guid: 709ea6694e52fcd47921725e7f30acd6,
         type: 2}
@@ -5403,6 +5403,11 @@ Prefab:
       propertyPath: soundDamage.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 95198fa5417187e46a54f5513b09d729, type: 3}
+    - target: {fileID: 23049751683531138, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64815bb909c9cb14299b575382a10e5f, type: 2}
     m_RemovedComponents:
     - {fileID: 82407769386342978, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
