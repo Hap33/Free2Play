@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4326456483516578}
-  - component: {fileID: 64738745973103626}
+  - component: {fileID: 64836505954811478}
   m_Layer: 0
   m_Name: road
   m_TagString: Untagged
@@ -434,7 +434,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889445657550984}
   m_Mesh: {fileID: 4300008, guid: 60b04cbbeff8452409f5cb5e949dcfc0, type: 3}
---- !u!64 &64738745973103626
+--- !u!64 &64836505954811478
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

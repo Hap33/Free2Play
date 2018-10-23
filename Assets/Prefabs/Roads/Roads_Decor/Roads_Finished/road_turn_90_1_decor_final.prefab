@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4365849608234266}
-  - component: {fileID: 64925343817497342}
+  - component: {fileID: 64348507493846624}
   m_Layer: 0
   m_Name: road_turn_90_1
   m_TagString: Untagged
@@ -550,7 +550,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1040687970341170}
   m_Mesh: {fileID: 4300008, guid: 84dafe23c1ad4b744afa4c8be7f5603b, type: 3}
---- !u!64 &64925343817497342
+--- !u!64 &64348507493846624
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
