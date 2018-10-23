@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114069397446893610}
   - component: {fileID: 54869005600157800}
   - component: {fileID: 65257929144322216}
+  - component: {fileID: 82360935587156832}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -820,7 +821,6 @@ GameObject:
   - component: {fileID: 4504601893284690}
   - component: {fileID: 33192728886035052}
   - component: {fileID: 23049751683531138}
-  - component: {fileID: 82407769386342978}
   m_Layer: 0
   m_Name: Vaisseau_V2
   m_TagString: Untagged
@@ -2089,8 +2089,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011498980547526}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 78.432, y: 0.43, z: -20.81}
+  m_LocalRotation: {x: -0, y: -0.00000026822087, z: -0, w: -1}
+  m_LocalPosition: {x: 0.45882234, y: -0.07320668, z: -10.7855835}
   m_LocalScale: {x: 0.063771, y: 0.063771, z: 0.063771}
   m_Children:
   - {fileID: 4160006993698178}
@@ -2101,7 +2101,7 @@ Transform:
   - {fileID: 4245718745576434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!4 &4955068032393528
 Transform:
   m_ObjectHideFlags: 1
@@ -3165,20 +3165,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1506766833269216}
   m_Enabled: 1
---- !u!82 &82407769386342978
+--- !u!82 &82360935587156832
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756839446289356}
+  m_GameObject: {fileID: 1011498980547526}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.223
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3565,7 +3565,11 @@ MonoBehaviour:
   threeSound: {fileID: 8300000, guid: e03a1df210585524885c15a6968face3, type: 3}
   twoSound: {fileID: 8300000, guid: 4f6f1d166e70beb47a58d1af840d6d80, type: 3}
   oneSound: {fileID: 8300000, guid: 45c8a187c00ebca48b573cb4f2012532, type: 3}
-  soundDamage: []
+  soundDamage:
+  - {fileID: 8300000, guid: a29813dca0b3fce4e986602ae9c5570c, type: 3}
+  - {fileID: 8300000, guid: a29813dca0b3fce4e986602ae9c5570c, type: 3}
+  - {fileID: 8300000, guid: 376aacad6e6ed144dbd48694f11c6b89, type: 3}
+  - {fileID: 8300000, guid: 22254344963cdf541a55215d9247cc10, type: 3}
 --- !u!114 &114140697871014370
 MonoBehaviour:
   m_ObjectHideFlags: 1
