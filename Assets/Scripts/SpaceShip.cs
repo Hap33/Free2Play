@@ -27,12 +27,12 @@ public class SpaceShip : MonoBehaviour {
     public GameObject speedEffect, speedMotor, sparksWallHit;
     public GameObject[] spaceShipAspect, baseSpaceShip;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
-    public float[] boostByState, maxSpeeds;
+    public float[] boostByState;
     public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound, loopMusic, actualMusic;
     public AudioClip[] soundDamage;
 
     private AudioSource speedSoundSource, musicAndEffectsSound;
-    private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
+    private float speed, boost, boostMax, rotationZ, boostBottom;
     private bool isBoosting;
     private States state;
     private GameManager gm;
@@ -49,7 +49,6 @@ public class SpaceShip : MonoBehaviour {
         boostMax = 1;
         speed = boost = 0;
         state = States.Excellent;
-        maxSpeed = maxSpeeds[(int)state];
         isBoosting = false;
         isStarting = false;
         hasEnded = false;
@@ -170,7 +169,7 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
-            speed += maxSpeeds[(int)state] * GetAcceleration()*0.1f;
+            speed += 10 * GetAcceleration()*0.1f;
             Camera.main.fieldOfView -= Time.deltaTime * 100;
             if (Camera.main.fieldOfView < 60)
             {
@@ -178,9 +177,9 @@ public class SpaceShip : MonoBehaviour {
             }
         }
 
-        if(speed > maxSpeed && isBoosting == false)
+        if(speed > 10 && isBoosting == false)
         {
-            speed = maxSpeed;
+            speed = 10;
         }
 
         transform.Translate(sideSpeed * dir * Time.deltaTime * Time.timeScale, 0, speed * Time.deltaTime * Time.timeScale);
@@ -208,7 +207,6 @@ public class SpaceShip : MonoBehaviour {
             currentState = 3;
         }
         state = (States)currentState;
-        maxSpeed = maxSpeeds[currentState];
         boostMax = boostByState[currentState];
         speedSoundSource.Stop();
         musicAndEffectsSound.PlayOneShot(soundDamage[currentState]);
@@ -223,7 +221,6 @@ public class SpaceShip : MonoBehaviour {
     {
         boostMax = boostByState[0];
         state = (States)0;
-        maxSpeed = maxSpeeds[0];
     }
 
     //Destroys the ship (usable only in Zone mode)
@@ -269,7 +266,7 @@ public class SpaceShip : MonoBehaviour {
     //Returns the acceleration value [0; 1]
     private float GetAcceleration()
     {
-        float clampSpeed = Mathf.Clamp01(speed / maxSpeed);
+        float clampSpeed = Mathf.Clamp01(speed / 10);
         return accelerationCurve.Evaluate(clampSpeed);
     }
 
@@ -293,7 +290,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed = maxSpeeds[(int)state] * 2;
+        speed *= 2;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
     }
