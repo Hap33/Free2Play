@@ -25,7 +25,7 @@ public class SpaceShip : MonoBehaviour {
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
     public GameObject speedEffect, speedMotor, sparksWallHit;
-    public GameObject[] spaceShipAspect;
+    public GameObject[] spaceShipAspect, baseSpaceShip;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
     public float[] boostByState, maxSpeeds;
     public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound, loopMusic, actualMusic;
@@ -50,7 +50,6 @@ public class SpaceShip : MonoBehaviour {
         speed = boost = 0;
         state = States.Excellent;
         maxSpeed = maxSpeeds[(int)state];
-        //spaceShipAspect[(int)state].GetComponent<MeshRenderer>().material = stateMaterials[0];
         isBoosting = false;
         isStarting = false;
         hasEnded = false;
@@ -208,7 +207,6 @@ public class SpaceShip : MonoBehaviour {
         {
             currentState = 3;
         }
-        //spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[currentState];
         state = (States)currentState;
         maxSpeed = maxSpeeds[currentState];
         boostMax = boostByState[currentState];
@@ -225,7 +223,6 @@ public class SpaceShip : MonoBehaviour {
     {
         boostMax = boostByState[0];
         state = (States)0;
-        //spaceShipAspect.GetComponent<MeshRenderer>().material = stateMaterials[0];
         maxSpeed = maxSpeeds[0];
     }
 
@@ -352,8 +349,14 @@ public class SpaceShip : MonoBehaviour {
         StartCoroutine(StartSound());
     }
 
+    public void ChooseModelBase(int skinId)
+    {
+        spaceShipAspect[0] = baseSpaceShip[skinId];
+    }
+
     IEnumerator StartSound()
     {
+        spaceShipAspect[(int)state].SetActive(true);
         musicAndEffectsSound.PlayOneShot(actualMusic);
         musicAndEffectsSound.PlayOneShot(threeSound);
         yield return new WaitForSeconds(1);

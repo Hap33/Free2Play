@@ -113,6 +113,7 @@ public class UIManagerGame : MonoBehaviour {
 
     public void RightChoice()
     {
+        SpaceShip.instance.ChooseModelBase(vehicleIndex);
         hasChosenVehicle = true;
         StartCoroutine(StartTimer());
     }
