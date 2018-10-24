@@ -290,7 +290,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed *= 2;
+        speed = 20;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
     }
