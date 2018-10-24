@@ -277,10 +277,7 @@ public class SpaceShip : MonoBehaviour {
     private void EndOfGame()
     {
         hasEnded = true;
-        GameObject Camera;
-        //call the UIManager to show the End UI and hide the Play UI
-        Camera = this.gameObject.transform.GetChild(6).gameObject;
-        Camera.transform.parent = null;
+        Camera.main.transform.parent = null;
         //GameManager.instance.EndRace();
         UIManagerGame.instance.EndGame();
     }
