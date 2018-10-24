@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19173068, g: 0.06402525, b: 0.16992494, a: 1}
+  m_IndirectSpecularColor: {r: 0.19310263, g: 0.065444745, b: 0.16255116, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14363,6 +14363,16 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224388275586785466, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.1730957
+      objectReference: {fileID: 0}
+    - target: {fileID: 224483018913504822, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
   m_IsPrefabAsset: 0
@@ -16848,7 +16858,12 @@ Prefab:
         type: 2}
       propertyPath: actualMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 8c0a4e3ec7bcede4b8f2e4d2492f2b5e, type: 3}
+      objectReference: {fileID: 8300000, guid: 8c9fed3203e93c34297ec3e9143ac3e3, type: 3}
+    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: loopMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 66bdd50c825328d4ab373a95e048fdda, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
   m_IsPrefabAsset: 0
