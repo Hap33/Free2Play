@@ -576,7 +576,7 @@ MonoBehaviour:
   BuyButton: {fileID: 187230086}
   vehicleChoice:
   - {fileID: 21300000, guid: df346f6604dc82944acd4d87b9d1e6fd, type: 3}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: a412aad5cfc3afe469c73c2bb155aab0, type: 3}
   - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 27ccde3ccef6ed148a5bf60f820b2943, type: 3}
   imageVehicle: {fileID: 1049175270}
