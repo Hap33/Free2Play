@@ -4573,7 +4573,7 @@ MonoBehaviour:
   boostTimerBeforeBackToNormal: 0.5
   accelerationBoost: 1
   fovMax: 120
-  turnSpeed: 50
+  turnSpeed: 45
   maxSpeed: 15
   boostByState:
   - 1
