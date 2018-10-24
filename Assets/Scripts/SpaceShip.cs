@@ -276,7 +276,8 @@ public class SpaceShip : MonoBehaviour {
         hasEnded = true;
         Camera.main.transform.parent = null;
         Camera.main.fieldOfView = 60;
-        //GameManager.instance.EndRace();
+        musicAndEffectsSound.volume = 0;
+        NoShortcut.instance.Destruction();
         UIManagerGame.instance.EndGame();
     }
 
