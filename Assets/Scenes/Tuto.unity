@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19173068, g: 0.06402525, b: 0.16992494, a: 1}
+  m_IndirectSpecularColor: {r: 0.19287908, g: 0.06468819, b: 0.16206771, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3457,6 +3457,44 @@ Prefab:
     - target: {fileID: 114064168819229994, guid: 709ea6694e52fcd47921725e7f30acd6,
         type: 2}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879447119923212, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224483018913504822, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 84.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 224780499369604310, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 224995886347936718, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 91.50005
+      objectReference: {fileID: 0}
+    - target: {fileID: 224483018913504822, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.342041
+      objectReference: {fileID: 0}
+    - target: {fileID: 224780499369604310, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224995886347936718, guid: 709ea6694e52fcd47921725e7f30acd6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.182983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933939874545136, guid: 709ea6694e52fcd47921725e7f30acd6, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
