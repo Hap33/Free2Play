@@ -28,7 +28,7 @@ public class SpaceShip : MonoBehaviour {
     public GameObject[] spaceShipAspect;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
     public float[] boostByState, maxSpeeds;
-    public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound;
+    public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound, loopMusic, actualMusic;
     public AudioClip[] soundDamage;
 
     private AudioSource speedSoundSource, musicAndEffectsSound;
@@ -54,6 +54,7 @@ public class SpaceShip : MonoBehaviour {
         isBoosting = false;
         isStarting = false;
         hasEnded = false;
+        musicAndEffectsSound.PlayOneShot(loopMusic);
 
         gm = GameManager.instance;
 	}
@@ -81,10 +82,6 @@ public class SpaceShip : MonoBehaviour {
         {
             StartBoost();
         }
-        /*else
-        {
-            Camera.main.fieldOfView -= Time.deltaTime * 100;
-        }*/
 
         BoostDraining();
 
@@ -357,6 +354,7 @@ public class SpaceShip : MonoBehaviour {
 
     IEnumerator StartSound()
     {
+        musicAndEffectsSound.PlayOneShot(actualMusic);
         musicAndEffectsSound.PlayOneShot(threeSound);
         yield return new WaitForSeconds(1);
         musicAndEffectsSound.PlayOneShot(twoSound);

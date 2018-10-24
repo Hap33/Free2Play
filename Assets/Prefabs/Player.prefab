@@ -3176,10 +3176,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3661,6 +3661,8 @@ MonoBehaviour:
   threeSound: {fileID: 8300000, guid: e03a1df210585524885c15a6968face3, type: 3}
   twoSound: {fileID: 8300000, guid: 4f6f1d166e70beb47a58d1af840d6d80, type: 3}
   oneSound: {fileID: 8300000, guid: 45c8a187c00ebca48b573cb4f2012532, type: 3}
+  loopMusic: {fileID: 8300000, guid: 01878092c3822b44e8c5be7fb4d72922, type: 3}
+  actualMusic: {fileID: 0}
   soundDamage:
   - {fileID: 8300000, guid: a10a7972ef9199248b29ecb9f43f42f3, type: 3}
   - {fileID: 8300000, guid: a10a7972ef9199248b29ecb9f43f42f3, type: 3}
