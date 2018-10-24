@@ -26,7 +26,7 @@ public class SpaceShip : MonoBehaviour {
     public AnimationCurve accelerationCurve;
     public GameObject speedEffect, speedMotor, sparksWallHit;
     public GameObject[] spaceShipAspect, baseSpaceShip;
-    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed;
+    public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed, maxSpeed;
     public float[] boostByState;
     public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound, loopMusic, actualMusic;
     public AudioClip[] soundDamage;
@@ -169,7 +169,7 @@ public class SpaceShip : MonoBehaviour {
 
         if (isBoosting == false)
         {
-            speed += 10 * GetAcceleration()*0.1f;
+            speed += maxSpeed * GetAcceleration()*0.1f;
             Camera.main.fieldOfView -= Time.deltaTime * 100;
             if (Camera.main.fieldOfView < 60)
             {
@@ -177,9 +177,9 @@ public class SpaceShip : MonoBehaviour {
             }
         }
 
-        if(speed > 10 && isBoosting == false)
+        if(speed > maxSpeed && isBoosting == false)
         {
-            speed = 10;
+            speed = maxSpeed;
         }
 
         transform.Translate(sideSpeed * dir * Time.deltaTime * Time.timeScale, 0, speed * Time.deltaTime * Time.timeScale);
@@ -266,7 +266,7 @@ public class SpaceShip : MonoBehaviour {
     //Returns the acceleration value [0; 1]
     private float GetAcceleration()
     {
-        float clampSpeed = Mathf.Clamp01(speed / 10);
+        float clampSpeed = Mathf.Clamp01(speed / maxSpeed);
         return accelerationCurve.Evaluate(clampSpeed);
     }
 
@@ -275,6 +275,7 @@ public class SpaceShip : MonoBehaviour {
     {
         hasEnded = true;
         Camera.main.transform.parent = null;
+        Camera.main.fieldOfView = 60;
         //GameManager.instance.EndRace();
         UIManagerGame.instance.EndGame();
     }
@@ -290,7 +291,7 @@ public class SpaceShip : MonoBehaviour {
     {
         boostBottom = boost - 0.1f;
         isBoosting = true;
-        speed = 20;
+        speed = maxSpeed*2;
         speedEffect.SetActive(true);
         speedMotor.SetActive(true);
     }

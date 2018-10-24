@@ -4573,17 +4573,13 @@ MonoBehaviour:
   boostTimerBeforeBackToNormal: 0.5
   accelerationBoost: 1
   fovMax: 120
-  turnSpeed: 40
+  turnSpeed: 50
+  maxSpeed: 15
   boostByState:
   - 1
   - 0.63
   - 0.37
   - 0.17
-  maxSpeeds:
-  - 10
-  - 5
-  - 2.5
-  - 1.75
   soundSpeed: {fileID: 8300000, guid: c1e9fb55e8921664493f0686887c82e4, type: 3}
   soundStart: {fileID: 8300000, guid: f687bb9d2c6afd54aba592ca9f3e108f, type: 3}
   threeSound: {fileID: 8300000, guid: e03a1df210585524885c15a6968face3, type: 3}
