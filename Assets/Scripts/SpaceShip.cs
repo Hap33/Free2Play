@@ -31,7 +31,7 @@ public class SpaceShip : MonoBehaviour {
     public AudioClip soundSpeed, soundStart, threeSound, twoSound, oneSound;
     public AudioClip[] soundDamage;
 
-    private AudioSource soundSource;
+    private AudioSource speedSoundSource, musicAndEffectsSound;
     private float speed, maxSpeed, boost, boostMax, rotationZ, boostBottom;
     private bool isBoosting;
     private States state;
@@ -41,7 +41,8 @@ public class SpaceShip : MonoBehaviour {
     
     //Use this for initialization
     void Start () {
-        soundSource = gameObject.GetComponent<AudioSource>();
+        speedSoundSource = gameObject.GetComponent<AudioSource>();
+        musicAndEffectsSound = Camera.main.GetComponent<AudioSource>();
         speedEffect.SetActive(false);
         speedMotor.SetActive(false);
         hasEnded = false;
@@ -65,7 +66,13 @@ public class SpaceShip : MonoBehaviour {
             return;
         }
 
-        soundSource.PlayOneShot(soundSpeed);
+        speedSoundSource.PlayOneShot(soundSpeed);
+        speedSoundSource.pitch = speed / 3.6f;
+
+        if (Time.timeScale == 0)
+        {
+            speedSoundSource.Stop();
+        }
 
         Move();
         UIManagerGame.instance.CheckSpeed(speed/5);
@@ -98,7 +105,6 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-            soundSource = gameObject.GetComponent<AudioSource>();
             speed /= 2;
         }
         
@@ -145,7 +151,7 @@ public class SpaceShip : MonoBehaviour {
     {
         if(hasEnded == true)
         {
-            soundSource.pitch = 0;
+            speedSoundSource.pitch = 0;
             transform.Translate(0, 0, speed * Time.deltaTime);
             return;
         }
@@ -209,8 +215,8 @@ public class SpaceShip : MonoBehaviour {
         state = (States)currentState;
         maxSpeed = maxSpeeds[currentState];
         boostMax = boostByState[currentState];
-        soundSource.Stop();
-        soundSource.PlayOneShot(soundDamage[currentState]);
+        speedSoundSource.Stop();
+        musicAndEffectsSound.PlayOneShot(soundDamage[currentState]);
         if (boost > boostMax)
         {
             boost = boostMax;
@@ -351,12 +357,12 @@ public class SpaceShip : MonoBehaviour {
 
     IEnumerator StartSound()
     {
-        soundSource.PlayOneShot(threeSound);
+        musicAndEffectsSound.PlayOneShot(threeSound);
         yield return new WaitForSeconds(1);
-        soundSource.PlayOneShot(twoSound);
+        musicAndEffectsSound.PlayOneShot(twoSound);
         yield return new WaitForSeconds(1);
-        soundSource.PlayOneShot(oneSound);
+        musicAndEffectsSound.PlayOneShot(oneSound);
         yield return new WaitForSeconds(1);
-        soundSource.PlayOneShot(soundStart);
+        musicAndEffectsSound.PlayOneShot(soundStart);
     }
 }
