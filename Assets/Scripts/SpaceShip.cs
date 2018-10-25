@@ -299,7 +299,6 @@ public class SpaceShip : MonoBehaviour {
         isBoosting = true;
         speed = maxSpeed*2;
         speedEffect.SetActive(true);
-        speedMotor.SetActive(true);
     }
 
     //Puts our speed back to what it was
@@ -307,7 +306,6 @@ public class SpaceShip : MonoBehaviour {
     {
         isBoosting = false;
         speedEffect.SetActive(false);
-        speedMotor.SetActive(false);
     }
 
     //Lower the boost meter when boosting
@@ -366,5 +364,6 @@ public class SpaceShip : MonoBehaviour {
         musicAndEffectsSound.PlayOneShot(oneSound);
         yield return new WaitForSeconds(1);
         musicAndEffectsSound.PlayOneShot(soundStart);
+        speedMotor.SetActive(true);
     }
 }
