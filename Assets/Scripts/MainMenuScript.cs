@@ -7,6 +7,7 @@ public class MainMenuScript : MonoBehaviour {
 
     public void SceneLaunch(string nomScene)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(nomScene);
     }
 
