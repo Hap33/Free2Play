@@ -816,7 +816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1759338883849332
 GameObject:
   m_ObjectHideFlags: 1
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   - 0.63
   - 0.37
   - 0.17
-  soundSpeed: {fileID: 8300000, guid: 268683ba095e8d848bdb751a9ef5e84a, type: 3}
+  soundSpeed: {fileID: 8300000, guid: 26d97283e19aa524e92446bd7d80836d, type: 3}
   soundStart: {fileID: 8300000, guid: f687bb9d2c6afd54aba592ca9f3e108f, type: 3}
   threeSound: {fileID: 8300000, guid: e03a1df210585524885c15a6968face3, type: 3}
   twoSound: {fileID: 8300000, guid: 4f6f1d166e70beb47a58d1af840d6d80, type: 3}

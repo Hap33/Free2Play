@@ -68,7 +68,7 @@ public class SpaceShip : MonoBehaviour {
         }
 
         speedSoundSource.PlayOneShot(soundSpeed);
-        speedSoundSource.pitch = speed / 3.6f;
+        speedSoundSource.pitch = 1;
 
         if (Time.timeScale == 0)
         {
@@ -81,6 +81,7 @@ public class SpaceShip : MonoBehaviour {
         if(Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 1.5f && boost > 0)
         {
             StartBoost();
+            speedSoundSource.pitch = 2;
         }
 
         BoostDraining();
@@ -102,12 +103,14 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-            speed /= 2;
+            speed /= 5;
+            speedSoundSource.pitch -= 2;
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
-            speed /= 2;
+            speedSoundSource.pitch -= 2;
+            speed /= 3;
         }
     }
 
@@ -115,6 +118,7 @@ public class SpaceShip : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            speedSoundSource.pitch -= 2;
             Instantiate(sparksWallHit, collision.contacts[0].point, transform.rotation);
         }
     }
