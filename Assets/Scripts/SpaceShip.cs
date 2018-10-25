@@ -39,10 +39,14 @@ public class SpaceShip : MonoBehaviour {
     private GameManager gm;
     private bool hasEnded;
     private bool isStarting;
+    private Vector3 spawner;
+    private Quaternion spawnerRotation;
     #endregion
 
     //Use this for initialization
     void Start () {
+        spawner = transform.position;
+        spawnerRotation = transform.rotation;
         Time.timeScale = 1;
         speedSoundSource = gameObject.GetComponent<AudioSource>();
         musicAndEffectsSound = Camera.main.GetComponent<AudioSource>();
@@ -112,6 +116,12 @@ public class SpaceShip : MonoBehaviour {
         {
             speedSoundSource.pitch = 0;
             speed /= 1.5f;
+            if (isBoosting)
+            {
+                transform.position = spawner;
+                transform.rotation = spawnerRotation;
+                DamageSpaceShip((int)state);
+            }
         }
     }
 
@@ -145,6 +155,8 @@ public class SpaceShip : MonoBehaviour {
         }
         if (col.CompareTag("CheckPoint"))
         {
+            spawner = transform.position;
+            spawnerRotation = transform.rotation;
             RepairSpaceShip();
         }
     }
