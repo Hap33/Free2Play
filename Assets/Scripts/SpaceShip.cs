@@ -103,14 +103,14 @@ public class SpaceShip : MonoBehaviour {
         {
             DamageSpaceShip((int)state);
             Destroy(collision.gameObject);
-            speed /= 5;
-            speedSoundSource.pitch -= 2;
+            speed /= 20;
+            speedSoundSource.pitch = 0;
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
-            speedSoundSource.pitch -= 2;
-            speed /= 3;
+            speedSoundSource.pitch = 0;
+            speed /= 1.5f;
         }
     }
 
@@ -118,7 +118,8 @@ public class SpaceShip : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            speedSoundSource.pitch -= 2;
+            speedSoundSource.pitch = 0;
+            speed /= 1.5f;
             Instantiate(sparksWallHit, collision.contacts[0].point, transform.rotation);
         }
     }
