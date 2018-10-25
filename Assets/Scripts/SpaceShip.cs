@@ -54,7 +54,7 @@ public class SpaceShip : MonoBehaviour {
         isBoosting = false;
         isStarting = false;
         hasEnded = false;
-        musicAndEffectsSound.PlayOneShot(loopMusic);
+        //musicAndEffectsSound.PlayOneShot(loopMusic);
 
         gm = GameManager.instance;
 	}
@@ -361,7 +361,7 @@ public class SpaceShip : MonoBehaviour {
     IEnumerator StartSound()
     {
         spaceShipAspect[(int)state].SetActive(true);
-        musicAndEffectsSound.PlayOneShot(actualMusic);
+        //musicAndEffectsSound.PlayOneShot(actualMusic);
         musicAndEffectsSound.PlayOneShot(threeSound);
         yield return new WaitForSeconds(1);
         musicAndEffectsSound.PlayOneShot(twoSound);
