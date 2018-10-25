@@ -21,7 +21,7 @@ public class UIManagerGame : MonoBehaviour {
     #endregion
 
     [SerializeField]
-    private TextMeshProUGUI timerTextMesh, textFinalTimeMesh;
+    private TextMeshProUGUI timerTextMesh, textFinalTimeMesh, chooseText;
 
     public Text speedText;
     public Image boostLife, boostSpeed, speedGrad, imageStart, imageSelectVehicle;
@@ -116,6 +116,7 @@ public class UIManagerGame : MonoBehaviour {
         SpaceShip.instance.ChooseModelBase(vehicleIndex);
         hasChosenVehicle = true;
         StartCoroutine(StartTimer());
+        chooseText.enabled = false;
     }
 
     public void LeftArrow()
