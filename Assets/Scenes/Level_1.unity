@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19173068, g: 0.06402525, b: 0.16992494, a: 1}
+  m_IndirectSpecularColor: {r: 0.19310263, g: 0.065444745, b: 0.16255116, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4200,6 +4200,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: 5.580017
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077330520582098, guid: ac8278dffbb32ae48aca78a6e907aacc,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.0000153
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8278dffbb32ae48aca78a6e907aacc, type: 2}
@@ -17213,6 +17218,11 @@ Prefab:
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 1834420455}
+    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: soundSpeed
+      value: 
+      objectReference: {fileID: 8300000, guid: 268683ba095e8d848bdb751a9ef5e84a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
   m_IsPrefabAsset: 0

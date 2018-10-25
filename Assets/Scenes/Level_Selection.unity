@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 1262394975}
   - component: {fileID: 1262394974}
   - component: {fileID: 1262394973}
+  - component: {fileID: 1262394976}
   m_Layer: 5
   m_Name: Level_1
   m_TagString: Untagged
@@ -866,7 +867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1824437201}
+      - m_Target: {fileID: 1262394976}
         m_MethodName: SceneLaunch
         m_Mode: 5
         m_Arguments:
@@ -913,6 +914,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262394971}
   m_CullTransparentMesh: 0
+--- !u!114 &1262394976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262394971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ce89557f0fb7942bd735a33862131a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413719193
 GameObject:
   m_ObjectHideFlags: 0
