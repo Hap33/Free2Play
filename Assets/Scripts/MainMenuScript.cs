@@ -8,7 +8,8 @@ public class MainMenuScript : MonoBehaviour {
     public void SceneLaunch(string nomScene)
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(nomScene);
+
+        StartCoroutine(LaunchSceneAsync(nomScene));
     }
 
     public void SceneNext()
@@ -20,5 +21,15 @@ public class MainMenuScript : MonoBehaviour {
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+    }
+
+    public IEnumerator LaunchSceneAsync(string SceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
