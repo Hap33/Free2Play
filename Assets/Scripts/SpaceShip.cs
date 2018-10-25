@@ -43,6 +43,7 @@ public class SpaceShip : MonoBehaviour {
 
     //Use this for initialization
     void Start () {
+        Time.timeScale = 1;
         speedSoundSource = gameObject.GetComponent<AudioSource>();
         musicAndEffectsSound = Camera.main.GetComponent<AudioSource>();
         speedEffect.SetActive(false);
@@ -289,6 +290,7 @@ public class SpaceShip : MonoBehaviour {
         musicAndEffectsSound.volume = 0;
         NoShortcut.instance.Destruction();
         UIManagerGame.instance.EndGame();
+        Time.timeScale = 0;
     }
 
     //Starts the game
