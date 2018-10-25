@@ -34,7 +34,7 @@ public class SpaceShip : MonoBehaviour {
 
     private AudioSource speedSoundSource, musicAndEffectsSound;
     private float speed, boost, boostMax, rotationZ, boostBottom;
-    private bool isBoosting;
+    private bool isBoosting, isAlive;
     private States state;
     private GameManager gm;
     private bool hasEnded;
@@ -45,6 +45,7 @@ public class SpaceShip : MonoBehaviour {
 
     //Use this for initialization
     void Start () {
+        isAlive = true;
         spawner = transform.position;
         spawnerRotation = transform.rotation;
         Time.timeScale = 1;
@@ -73,6 +74,7 @@ public class SpaceShip : MonoBehaviour {
         }
 
         speedSoundSource.PlayOneShot(soundSpeed);
+        speedSoundSource.volume = 0.5f;
         speedSoundSource.pitch = 1;
 
         if (Time.timeScale == 0)
@@ -92,14 +94,12 @@ public class SpaceShip : MonoBehaviour {
         BoostDraining();
 
         UIManagerGame.instance.BoostUpdate(boost, boostMax);
-
-        CheckSpaceShip();
        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (hasEnded == true)
+        if (hasEnded == true || isAlive == false)
         {
             return;
         }
@@ -118,9 +118,8 @@ public class SpaceShip : MonoBehaviour {
             speed /= 1.5f;
             if (isBoosting)
             {
-                transform.position = spawner;
-                transform.rotation = spawnerRotation;
-                DamageSpaceShip((int)state);
+                speed = 0;
+                StartCoroutine(YouDied());
             }
         }
     }
@@ -164,12 +163,11 @@ public class SpaceShip : MonoBehaviour {
     //Used to move the SpaceShip
     private void Move()
     {
-        if(hasEnded == true)
+        if(hasEnded == true || isAlive == false)
         {
-            speedSoundSource.pitch = 0;
-            transform.Translate(0, 0, speed * Time.deltaTime);
             return;
         }
+
 
         int dir;
 
@@ -184,7 +182,7 @@ public class SpaceShip : MonoBehaviour {
         rotationZ = Mathf.Clamp(rotationZ, -20, 20);
         rotationZ = Mathf.MoveTowards(rotationZ, 0, Time.deltaTime * 30 * Time.timeScale);
         rotationZ +=  dir;
-        spaceShipAspect[(int)state].transform.localEulerAngles = new Vector3(-rotationZ * Time.timeScale, -90f, 0);
+        spaceShipAspect[0].transform.localEulerAngles = new Vector3(-rotationZ * Time.timeScale, -90f, 0);
 
 
         if (isBoosting == false)
@@ -205,7 +203,7 @@ public class SpaceShip : MonoBehaviour {
         transform.Translate(sideSpeed * dir * Time.deltaTime * Time.timeScale, 0, speed * Time.deltaTime * Time.timeScale);
     }
 
-    public void CheckSpaceShip()
+    /*public void CheckSpaceShip()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -216,7 +214,7 @@ public class SpaceShip : MonoBehaviour {
             }
             spaceShipAspect[i].SetActive(false);
         }
-    }
+    }*/
 
     //Moves the actual state of the ship to a worse state
     private void DamageSpaceShip(int currentState)
@@ -384,5 +382,19 @@ public class SpaceShip : MonoBehaviour {
         yield return new WaitForSeconds(1);
         musicAndEffectsSound.PlayOneShot(soundStart);
         speedMotor.SetActive(true);
+    }
+
+    IEnumerator YouDied()
+    {
+        isAlive = false;
+        spaceShipAspect[0].SetActive(false);
+        UIManagerGame.instance.ShowDeath(true);
+        yield return new WaitForSeconds(2);
+        spaceShipAspect[0].SetActive(true);
+        transform.position = spawner;
+        transform.rotation = spawnerRotation;
+        isAlive = true;
+        DamageSpaceShip((int)state);
+        UIManagerGame.instance.ShowDeath(false);
     }
 }

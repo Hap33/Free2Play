@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4241,7 +4241,27 @@ Prefab:
     - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
         type: 2}
       propertyPath: turnSpeed
-      value: 70
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670520342848440, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240366318366928, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908883429995974, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048988099647738, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613072132682870, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}

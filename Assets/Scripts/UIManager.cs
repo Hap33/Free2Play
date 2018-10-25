@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
 
     #region Instance
@@ -21,7 +22,7 @@ public class UIManager : MonoBehaviour {
 
     #endregion
 
-    
+
 
     //Loads the Main Menu Scene
     public void LoadMainMenu()
@@ -51,5 +52,10 @@ public class UIManager : MonoBehaviour {
     public void LoadLevel_1()
     {
         SceneManager.LoadScene("Level_1");
+    }
+
+    public void YouDedShow()
+    {
+
     }
 }

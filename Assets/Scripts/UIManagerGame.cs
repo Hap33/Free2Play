@@ -26,7 +26,7 @@ public class UIManagerGame : MonoBehaviour {
     public Text speedText;
     public Image boostLife, boostSpeed, speedGrad, imageStart, imageSelectVehicle;
     public Sprite threeSprite, twoSprite, oneSprite, goSprite;
-    public GameObject endGameScreen, selectButton;
+    public GameObject endGameScreen, selectButton, youDiedImage;
     public Sprite[] selectVehicleSprite;
 
     private float timerSec, arrowY;
@@ -136,6 +136,11 @@ public class UIManagerGame : MonoBehaviour {
         {
             vehicleIndex = 0;
         }
+    }
+
+    public void ShowDeath(bool isAlive)
+    {
+        youDiedImage.SetActive(isAlive);
     }
 
     IEnumerator StartTimer()
