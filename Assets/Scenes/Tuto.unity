@@ -4138,6 +4138,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114157798120010828, guid: ac8278dffbb32ae48aca78a6e907aacc,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Tuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942015417339286, guid: ac8278dffbb32ae48aca78a6e907aacc,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Tuto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8278dffbb32ae48aca78a6e907aacc, type: 2}
   m_IsPrefabAsset: 0

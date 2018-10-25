@@ -21,7 +21,7 @@ public class MusicScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().buildIndex > 3)
+		if (SceneManager.GetActiveScene().buildIndex > 4)
         {
             Destroy(gameObject);
         }
