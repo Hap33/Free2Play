@@ -2873,6 +2873,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4137801882233852, guid: e6066fc2c404603458cb4c41caba88cf,
     type: 2}
   m_PrefabInternal: {fileID: 880285539}
+--- !u!1 &897627213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080528931076974, guid: ac8278dffbb32ae48aca78a6e907aacc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1336920191}
 --- !u!1001 &953860630
 Prefab:
   m_ObjectHideFlags: 0
@@ -3897,6 +3902,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: uiBoost
+      value: 
+      objectReference: {fileID: 1565411512}
+    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: uiSpeed
+      value: 
+      objectReference: {fileID: 2083341573}
+    - target: {fileID: 114069397446893610, guid: 48bbb79f0b2a73346b0743c4d2b681b3,
+        type: 2}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 897627213}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bbb79f0b2a73346b0743c4d2b681b3, type: 2}
   m_IsPrefabAsset: 0

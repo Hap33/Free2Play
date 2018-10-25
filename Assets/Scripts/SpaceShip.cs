@@ -18,13 +18,14 @@ public class SpaceShip : MonoBehaviour {
 
     #endregion
 
+    #region Variables
     public enum GameMode { Time_Attack, Zone }; //Time_Attack = 0 / Zone = 1
     private enum States { Excellent, Good, Damaged, Broken }; //Excellent = 0 / Good = 1 / Damaged = 2 / Broken = 3
     
     public Material[] stateMaterials;
     public GameMode gameMode;
     public AnimationCurve accelerationCurve;
-    public GameObject speedEffect, speedMotor, sparksWallHit;
+    public GameObject speedEffect, speedMotor, sparksWallHit, uiBoost, uiSpeed, pauseButton;
     public GameObject[] spaceShipAspect, baseSpaceShip;
     public float sideSpeed, boostMultiplier, boostTimerBeforeBackToNormal, accelerationBoost, fovMax, turnSpeed, maxSpeed;
     public float[] boostByState;
@@ -38,7 +39,8 @@ public class SpaceShip : MonoBehaviour {
     private GameManager gm;
     private bool hasEnded;
     private bool isStarting;
-    
+    #endregion
+
     //Use this for initialization
     void Start () {
         speedSoundSource = gameObject.GetComponent<AudioSource>();
@@ -274,6 +276,9 @@ public class SpaceShip : MonoBehaviour {
     private void EndOfGame()
     {
         hasEnded = true;
+        uiBoost.SetActive(false);
+        uiSpeed.SetActive(false);
+        pauseButton.SetActive(false);
         Camera.main.transform.parent = null;
         Camera.main.fieldOfView = 60;
         musicAndEffectsSound.volume = 0;
