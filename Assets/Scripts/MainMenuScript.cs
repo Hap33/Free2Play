@@ -9,4 +9,15 @@ public class MainMenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene(nomScene);
     }
+
+    public void SceneNext()
+    {
+        int newBuild = SceneManager.GetActiveScene().buildIndex + 1;
+        if (newBuild > SceneManager.sceneCount)
+        {
+            SceneManager.LoadScene("Main_Menu");
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    }
 }
